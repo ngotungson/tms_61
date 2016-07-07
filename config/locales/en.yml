@@ -21,3 +21,14 @@
 
 en:
   hello: "Hello world"
+  view:
+    layout:
+      app_name: "TMS"
+      account: "Account"
+      profile: "Profile"
+      account_setting: "Setting"
+      logout: "Logout"
+    static_page:
+      home_header: "Training Management System"
+      contact_header: "Contact Page"
+      help_header: "Help Page"
