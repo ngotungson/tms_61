@@ -4,8 +4,11 @@
     <nav>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li><%= link_to t("view.layout.contact"), contact_path %></li>
-          <li><%= link_to t("view.layout.help"), help_path %></li>
+          <% if current_user.supervisor? %>
+            <%= render "layouts/supervisor_header" %>
+          <% else %>
+            <%= render "layouts/trainee_header" %>
+          <% end %>
 
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
