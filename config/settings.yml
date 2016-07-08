@@ -6,3 +6,5 @@ subject:
   per_page: 10
 task:
   per_page: 5
+build_task: 1
+least_task: 1

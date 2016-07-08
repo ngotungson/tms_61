@@ -4,7 +4,8 @@
   <td class="duration"><%= subject.duration %></td>
   <td class="col-ations text-right">
     <p data-placement="top" data-toggle="tooltip">
-      <%= link_to t("view.supervisor.subject.index.edit"), "#",
+      <%= link_to t("view.supervisor.subject.index.edit"),
+        edit_supervisor_subject_path(subject),
         class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
     </p>
   </td>

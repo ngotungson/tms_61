@@ -23,7 +23,7 @@ en:
   hello: "Hello world"
   view:
     layout:
-      app_name: "TMS"
+      app_name: " | TMS"
       account: "Account"
       profile: "Profile"
       account_setting: "Setting"
@@ -82,7 +82,15 @@ en:
           description: "Description"
           no_task_display: "There are no tasks displayed!"
           tasks: "Tasks of subject"
-
+        new:
+          title: "Subject"
+        edit:
+          title: "Edit Subject"
+        form:
+          add_task: "Add task"
+          save: "Save"
+          task_name: "Task"
+          duration: "number of days"
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"
@@ -103,3 +111,12 @@ en:
   model:
     user:
       avatar_size_error: "should less than 5 MB"
+    supervisor:
+      subject:
+        update_success: "Subject is updated"
+        create_success: "Subject is created"
+  model:
+    subject:
+      error:
+        must_be_diference: "must be difference"
+        at_least_1: "at least 1"
