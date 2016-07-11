@@ -3,8 +3,7 @@ class CreateSubjects < ActiveRecord::Migration
     create_table :subjects do |t|
       t.string :name
       t.string :description
-      t.datetime :start_date
-      t.datetime :end_date
+      t.integer :duration
 
       t.timestamps null: false
     end

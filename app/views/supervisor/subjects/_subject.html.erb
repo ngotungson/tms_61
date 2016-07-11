@@ -1,0 +1,18 @@
+<tr>
+  <td><%= link_to subject.name, "#" %></td>
+  <td><%= subject.description %></td>
+  <td class="duration"><%= subject.duration %></td>
+  <td class="col-ations text-right">
+    <p data-placement="top" data-toggle="tooltip">
+      <%= link_to t("view.supervisor.subject.index.edit"), "#",
+        class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+    </p>
+  </td>
+  <td>
+    <p data-placement="top" data-toggle="tooltip">
+      <%= link_to t("view.supervisor.subject.index.delete"), "#",
+        class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
+    </p>
+  </td>
+  <td></td>
+</tr>
