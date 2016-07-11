@@ -56,3 +56,15 @@ header {
 .field {
   padding-bottom: 10px;
 }
+
+.container {
+  font-family: Verdana, sans-serif;
+  .row {
+    .col-md-12 {
+      h2 {
+        color: blue;
+        text-shadow: 2px 2px 4px #000000;
+      }
+    }
+  }
+}

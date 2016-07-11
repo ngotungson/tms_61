@@ -32,6 +32,19 @@ en:
       home_header: "Training Management System"
       contact_header: "Contact Page"
       help_header: "Help Page"
+    supervisor:
+      user:
+        index:
+          list_all_user: "List all users"
+          add_new_user: "Add new user"
+          edit: "Edit"
+          delete: "Delete"
+          name: "Name"
+          email: "Email"
+          role: "Role"
+          password: "Password"
+          action: "Action"
+          no_user_display: "There are no user displayed!"
 
   controller:
     session:

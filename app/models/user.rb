@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-  enum role: [:trainee, :supervisor]
+  enum role: [:supervisor, :trainee]
 
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   has_many :tasks, through: :user_tasks
   has_many :user_subjects, dependent: :destroy
   has_many :subjects, through: :user_subjects
+
+  paginates_per Settings.user.per_page
 end

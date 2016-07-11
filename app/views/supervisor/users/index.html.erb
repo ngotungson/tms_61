@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= t "view.supervisor.user.index.list_all_user" %></h2>
+      </br>
+      <div class="table-responsive">
+        <%= link_to t("view.supervisor.user.index.add_new_user"), "#", class: "btn btn-primary" %>
+        </br>
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th><%= t "view.supervisor.user.index.name" %></th>
+            <th><%= t "view.supervisor.user.index.email" %></th>
+            <th><%= t "view.supervisor.user.index.role" %></th>
+            <th></th>
+            <th><%= t "view.supervisor.user.index.action" %></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <%= render(partial: "user", collection: @users, as: :user)
+              || t("view.supervisor.user.index.no_user_display") %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @users %>
