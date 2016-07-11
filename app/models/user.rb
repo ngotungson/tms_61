@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  enum role: [:trainee, :supervisor]
+
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 

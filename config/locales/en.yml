@@ -32,3 +32,10 @@ en:
       home_header: "Training Management System"
       contact_header: "Contact Page"
       help_header: "Help Page"
+
+  controller:
+    session:
+      success_signin: "Wellcome back"
+      error_signin: "Wrong email or password"
+      pleaseloginassupervisor: "Please login as supervisor"
+      success_signout: "Logout successfully"
