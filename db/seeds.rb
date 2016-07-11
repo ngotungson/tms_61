@@ -9,3 +9,10 @@ User.create(name: "Supervisor",
   email: "supervisor@example.com",
   password: "123456",
   role: 0)
+
+(1..10).each do |course_id|
+  Course.create(name: "Training Ruby on Rail phase #{course_id}",
+    description: "Learning Ruby on rails phase #{course_id} with conplete Subjects",
+    start_date: "2016-07-01",
+    end_date: "2016-08-01")
+end

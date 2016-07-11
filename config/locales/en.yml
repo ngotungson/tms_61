@@ -45,6 +45,18 @@ en:
           password: "Password"
           action: "Action"
           no_user_display: "There are no user displayed!"
+      course:
+        index:
+          list_all_courses: "List all courses"
+          add_new_course: "Add new course"
+          name: "Name"
+          description: "Description"
+          action: "Action"
+          edit: "Edit"
+          delete: "Delete"
+          start_date: "Start date"
+          end_date: "End date"
+          no_course_display: "There are no course displayed!"
 
   controller:
     session:
