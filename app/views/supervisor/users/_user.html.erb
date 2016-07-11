@@ -1,0 +1,18 @@
+<tr>
+  <td><%= user.name %></td>
+  <td><%= user.email %></td>
+  <td><%= user.role %></td>
+  <td class="col-ations text-right">
+    <p data-placement="top" data-toggle="tooltip" title="Edit">
+      <%= link_to t("view.supervisor.user.index.edit"), "#",
+        class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+    </p>
+  </td>
+  <td>
+    <p data-placement="top" data-toggle="tooltip" title="Delete">
+      <%= link_to t("view.supervisor.user.index.delete"), "#",
+        class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
+    </p>
+  </td>
+  <td></td>
+</tr>
