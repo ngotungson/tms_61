@@ -4,7 +4,8 @@
   <td><%= user.role %></td>
   <td class="col-ations text-right">
     <p data-placement="top" data-toggle="tooltip" title="Edit">
-      <%= link_to t("view.supervisor.user.index.edit"), "#",
+      <%= link_to t("view.supervisor.user.index.edit"),
+        edit_supervisor_user_path(user),
         class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
     </p>
   </td>

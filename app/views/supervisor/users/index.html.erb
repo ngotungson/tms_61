@@ -4,7 +4,8 @@
       <h2><%= t "view.supervisor.user.index.list_all_user" %></h2>
       </br>
       <div class="table-responsive">
-        <%= link_to t("view.supervisor.user.index.add_new_user"), "#", class: "btn btn-primary" %>
+        <%= link_to t("view.supervisor.user.index.add_new_user"),
+          new_supervisor_user_path, class: "btn btn-primary" %>
         </br>
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
@@ -16,8 +17,8 @@
             <th></th>
           </thead>
           <tbody>
-            <%= render(partial: "user", collection: @users, as: :user)
-              || t("view.supervisor.user.index.no_user_display") %>
+            <%= render(partial: "user", collection: @users, as: :user) || t("view
+              .supervisor.user.index.no_user_display") %>
           </tbody>
         </table>
       </div>

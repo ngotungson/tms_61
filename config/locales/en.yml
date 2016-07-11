@@ -28,10 +28,19 @@ en:
       profile: "Profile"
       account_setting: "Setting"
       logout: "Logout"
+    shared:
+      error:
+        message: "The form contains"
+        name: "error"
     static_page:
       home_header: "Training Management System"
       contact_header: "Contact Page"
       help_header: "Help Page"
+    user:
+      createheader: "Add new user"
+      createbutton: "Create"
+      updateheader: "Edit user"
+      updatebutton: "Update"
     supervisor:
       user:
         index:
@@ -59,8 +68,22 @@ en:
           no_course_display: "There are no course displayed!"
 
   controller:
+    common_flash:
+      create_success: "%{object_name} is created successfully"
+      create_error: "%{object_name} is not created"
+      update_success: "%{object_name} is updated successfully"
+      update_error: "%{object_name} is not updated"
+      delete_success: "%{object_name} is deleted successfully"
+      delete_error: "%{object_name} is not deleted"
     session:
       success_signin: "Wellcome back"
       error_signin: "Wrong email or password"
       pleaseloginassupervisor: "Please login as supervisor"
       success_signout: "Logout successfully"
+    user:
+      flash:
+        notexist: "This user doesn't exist"
+
+  model:
+    user:
+      avatar_size_error: "should less than 5 MB"
