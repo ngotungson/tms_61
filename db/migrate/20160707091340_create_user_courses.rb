@@ -3,8 +3,6 @@ class CreateUserCourses < ActiveRecord::Migration
     create_table :user_courses do |t|
       t.integer :user_id
       t.integer :course_id
-      t.datetime :start_date
-      t.integer :end_date
       t.integer :status
 
       t.timestamps null: false

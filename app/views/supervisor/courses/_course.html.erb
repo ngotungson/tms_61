@@ -1,0 +1,19 @@
+<tr>
+  <td><%= link_to course.name, "#" %></td>
+  <td><%= course.description %></td>
+  <td><%= course.start_date %></td>
+  <td><%= course.end_date %></td>
+  <td class="col-ations text-right">
+    <p data-placement="top" data-toggle="tooltip">
+      <%= link_to t("view.supervisor.course.index.edit"), "#",
+        class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
+    </p>
+  </td>
+  <td>
+    <p data-placement="top" data-toggle="tooltip">
+      <%= link_to t("view.supervisor.course.index.delete"), "#",
+        class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
+    </p>
+  </td>
+  <td></td>
+</tr>

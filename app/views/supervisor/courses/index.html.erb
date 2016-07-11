@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= t "view.supervisor.course.index.list_all_courses" %></h2>
+      </br>
+      <div class="table-responsive">
+        <%= link_to t("view.supervisor.course.index.add_new_course"), "#",
+          class: "btn btn-primary" %>
+        </br>
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th><%= t "view.supervisor.course.index.name" %></th>
+            <th><%= t "view.supervisor.course.index.description" %></th>
+            <th><%= t "view.supervisor.course.index.start_date" %></th>
+            <th><%= t "view.supervisor.course.index.end_date" %></th>
+            <th></th>
+            <th><%= t "view.supervisor.course.index.action" %></th>
+            <th></th>
+          </thead>
+          <tbody>
+            <%= render(partial: "course", collection: @courses, as: :course) || t("view.supervisor
+              .course.index.no_course.display") %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @courses %>

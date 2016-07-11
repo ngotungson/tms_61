@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20160707091946) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.string   "description"
+    t.datetime "start_date"
+    t.datetime "end_date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -55,8 +57,6 @@ ActiveRecord::Schema.define(version: 20160707091946) do
   create_table "user_courses", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.datetime "start_date"
-    t.integer  "end_date"
     t.integer  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
