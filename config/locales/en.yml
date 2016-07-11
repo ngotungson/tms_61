@@ -57,6 +57,17 @@ en:
           start_date: "Start date"
           end_date: "End date"
           no_course_display: "There are no course displayed!"
+      subject:
+        index:
+          list_all_subject: "List all subjects"
+          add_new_subject: "Add new subject"
+          name: "Name"
+          description: "Description"
+          action: "Action"
+          edit: "Edit"
+          delete: "Delete"
+          duration: "Duration(days)"
+          no_subject_display: "There are no subjects displayed!"
 
   controller:
     session:

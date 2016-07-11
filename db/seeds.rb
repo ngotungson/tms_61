@@ -16,3 +16,9 @@ User.create(name: "Supervisor",
     start_date: "2016-07-01",
     end_date: "2016-08-01")
 end
+
+(1..10).each do |subject_id|
+  Subject.create(name: "Subject #{subject_id}",
+    description: "You should complete tasks in subject #{subject_id}",
+    duration: 7)
+end
