@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     root "users#index"
     resources :users, only: :index
     resources :courses, only: :index
-    resources :subjects, only: :index
+    resources :subjects, only: [:index, :show]
   end
 end
