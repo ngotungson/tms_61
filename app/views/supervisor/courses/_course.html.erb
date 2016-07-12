@@ -6,7 +6,8 @@
   <td><%= course.status %></td>
   <td class="col-ations text-right">
     <p data-placement="top" data-toggle="tooltip">
-      <%= link_to t("view.supervisor.course.index.edit"), "#",
+      <%= link_to t("view.supervisor.course.index.edit"),
+        edit_supervisor_course_path(course),
         class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
     </p>
   </td>

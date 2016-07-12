@@ -1,0 +1,35 @@
+<%= form_for [:supervisor, @course] do |f| %>
+
+  <%= render "shared/error_messages", object: @course %>
+  <div class="course-new col-md-3">
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, class: "form-control" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_date %>
+      <%= f.date_field :end_date, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit t("view.supervisor.course.form.save"),
+        class: "btn btn-primary btn-block" %>
+    </div>
+  </div>
+
+  <div class="col-md-8 col-md-offset-1">
+    <%= render partial: "subjects", locals: {f: f} %>
+  </div>
+
+<% end %>

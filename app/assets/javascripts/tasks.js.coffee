@@ -1,4 +1,4 @@
-$(document).ready ->
+ready = ->
   $('form').find('a').addClass('btn btn-primary');
 
   @add_fields = (link, association, content) ->
@@ -10,3 +10,6 @@ $(document).ready ->
     $(@).prev('input[type=hidden]').val('1')
     $(@).parent().parent().hide()
     event.preventDefault()
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
