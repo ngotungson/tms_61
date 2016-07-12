@@ -1,9 +1,12 @@
 user:
-  per_page: 10
+  per_page: 2
+  trainee_param: "trainee_page"
+  supervisor_param: "supervisor_page"
 course:
-  per_page: 10
+  per_page: 2
 subject:
-  per_page: 10
+  per_page: 2
+  subject_param: "subject_page"
 task:
   per_page: 5
 build_task: 1

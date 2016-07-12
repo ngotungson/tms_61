@@ -8,4 +8,8 @@ module ApplicationHelper
     link_to name, "#", onclick: "add_fields(this, \"#{association}\",
       \"#{escape_javascript(fields)}\")"
   end
+
+  def date_display date
+    date.to_formatted_s :short
+  end
 end

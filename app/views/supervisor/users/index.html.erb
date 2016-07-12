@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container card">
   <div class="row">
     <div class="col-md-12">
       <h2><%= t "view.supervisor.user.index.list_all_user" %></h2>
@@ -24,6 +24,5 @@
       </div>
     </div>
   </div>
+  <%= paginate @users %>
 </div>
-
-<%= paginate @users %>

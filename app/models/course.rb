@@ -5,4 +5,9 @@ class Course < ActiveRecord::Base
   has_many :subjects, through: :course_subjects, dependent: :destroy
 
   paginates_per Settings.course.per_page
+
+  def duration
+    "#{start_date.to_formatted_s :short} :
+      #{end_date.to_formatted_s :short}"
+  end
 end
