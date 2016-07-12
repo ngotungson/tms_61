@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="table-responsive">
+    <h3><%= t "view.supervisor.course.show.subjects_on_course" %></h3>
+    <table class="table table-bordred table-striped">
+      <thead>
+        <th><%= t "view.supervisor.subject.index.name" %></th>
+        <th><%= t "view.supervisor.subject.index.duration" %></th>
+      </thead>
+      <tbody>
+        <% subjects.each do |subject| %>
+          <tr>
+            <td><%= link_to subject.name, "#" %></td>
+            <td><%= subject.duration %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate subjects, param_name: Settings.subject.subject_param,
+    params: {current_tab: "subjects"} %>
+</div>

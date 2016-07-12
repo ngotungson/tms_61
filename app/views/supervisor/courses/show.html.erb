@@ -1,0 +1,37 @@
+<div class="col-md-4">
+  <div class="card">
+    <center>
+      <h3 class="course-name"><%= @course.name %></h3>
+    </center>
+    <span>
+      <strong><%= t "view.supervisor.course.show.description" %></strong>
+    </span>
+    <p><%= @course.description %></p>
+    <span>
+      <strong><%= t "view.supervisor.course.show.date" %></strong>
+    </span>
+    <p><%= @course.duration %></p>
+  </div>
+</div>
+
+<div class="col-md-8" id= "courses-tab" data-current-tab=<%= @current_tab %> >
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#subjects">
+      <%= t "view.supervisor.course.show.subjects" %></a></li>
+    <li><a data-toggle="tab" href="#trainees">
+      <%= t "view.supervisor.course.show.trainees" %></a></li>
+    <li><a data-toggle="tab" href="#supervisors">
+      <%= t "view.supervisor.course.show.supervisors" %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="subjects" class="tab-pane fade in active">
+      <%= render partial: "subjects_on_course", locals: {subjects: @subjects} %>
+    </div>
+    <div id="trainees" class="tab-pane fade">
+      <%= render partial: "trainees_on_course", locals: {trainees: @trainees} %>
+    </div>
+    <div id="supervisors" class="tab-pane fade">
+      <%= render partial: "supervisors_on_course", locals: {supervisors: @supervisors} %>
+    </div>
+  </div>
+</div>

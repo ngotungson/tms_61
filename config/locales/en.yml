@@ -66,6 +66,16 @@ en:
           start_date: "Start date"
           end_date: "End date"
           no_course_display: "There are no course displayed!"
+        show:
+          subjects: Subjects
+          trainees: Trainees
+          supervisors: Supervisors
+          subjects_on_course: "Subjects on course"
+          trainees_on_course: "Trainees on course"
+          supervisors_on_course: "Supervisors on course"
+          description: "Description:"
+          date: "Date:"
+
       subject:
         index:
           list_all_subject: "List all subjects"

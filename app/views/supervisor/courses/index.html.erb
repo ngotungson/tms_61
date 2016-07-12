@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container card">
   <div class="row">
     <div class="col-md-12">
       <h2><%= t "view.supervisor.course.index.list_all_courses" %></h2>
@@ -25,6 +25,5 @@
       </div>
     </div>
   </div>
+  <%= paginate @courses %>
 </div>
-
-<%= paginate @courses %>

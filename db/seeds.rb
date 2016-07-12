@@ -1,14 +1,14 @@
-(1..5).each do |trainee_id|
+User.create(name: "Supervisor",
+  email: "supervisor@example.com",
+  password: "123456",
+  role: 0)
+
+(1..10).each do |trainee_id|
   User.create(name: "Trainee #{trainee_id}",
     email: "trainee#{trainee_id}@example.com",
     password: "123456",
     role: 1)
 end
-
-User.create(name: "Supervisor",
-  email: "supervisor@example.com",
-  password: "123456",
-  role: 0)
 
 (1..10).each do |course_id|
   Course.create(name: "Training Ruby on Rail phase #{course_id}",
@@ -29,4 +29,9 @@ end
       description: "Complete #{task_id} of subject#{subject_id}",
       subject_id: subject_id)
   end
+end
+
+(1..6).each do |id|
+  CourseSubject.create(course_id: 1, subject_id: "#{id}")
+  UserCourse.create(course_id: 1, user_id: "#{id}")
 end
