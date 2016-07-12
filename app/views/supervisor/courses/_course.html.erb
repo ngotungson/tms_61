@@ -1,8 +1,9 @@
 <tr>
-  <td><%= link_to course.name, "#" %></td>
+  <td><%= link_to course.name, [:supervisor, course] %></td>
   <td><%= course.description %></td>
   <td><%= course.start_date %></td>
   <td><%= course.end_date %></td>
+  <td><%= course.status %></td>
   <td class="col-ations text-right">
     <p data-placement="top" data-toggle="tooltip">
       <%= link_to t("view.supervisor.course.index.edit"), "#",
@@ -11,7 +12,8 @@
   </td>
   <td>
     <p data-placement="top" data-toggle="tooltip">
-      <%= link_to t("view.supervisor.course.index.delete"), "#",
+      <%= link_to t("view.supervisor.course.index.delete"), [:supervisor, course],
+        method: :delete, data: {confirm: t("view.supervisor.course.index.confirm")},
         class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
     </p>
   </td>
