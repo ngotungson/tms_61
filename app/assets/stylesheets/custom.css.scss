@@ -59,7 +59,7 @@ header {
   width: 20%;
 }
 
-.field {
+.field, .task_field {
   padding-bottom: 10px;
 }
 
@@ -94,4 +94,25 @@ header {
 
 .form-card {
   margin-top: 1em;
+}
+
+#button-add-task {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.subject-new {
+  padding-bottom: 50px;
+}
+
+.task {
+  padding-top: 50px;
+}
+
+.add {
+  padding-left: 15px;
+}
+
+.hidden {
+  display: none !important;
 }

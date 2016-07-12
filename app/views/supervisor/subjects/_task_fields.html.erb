@@ -1,0 +1,14 @@
+<% if f.object.marked_for_destruction? %>
+  <div class="hidden"></div>
+<% else %>
+  <div class="task_field">
+    <div class="col-md-9">
+      <%= f.text_field :name, class: "form-control",
+        placeholder: t("view.supervisor.subject.form.task_name") %></br>
+    </div>
+    <div class="col-md-3 destroy">
+      <%= f.hidden_field :_destroy %>
+      <%= f.label :_destroy, class: "btn btn-danger remove_field" %>
+    </div>
+  </div>
+<% end %>
