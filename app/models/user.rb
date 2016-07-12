@@ -24,6 +24,12 @@ class User < ActiveRecord::Base
   validates :password, length: {minimum: 5, maximum: 120}, on: :update, allow_blank: true
   validate :avatar_size
 
+  scope :in_actived_course, -> do
+    where("id IN
+      (SELECT user_id FROM user_courses
+      WHERE status = #{Course.statuses[:in_process]})")
+  end
+
   class << self
     def role_titles
       User.roles.keys
