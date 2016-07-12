@@ -68,6 +68,11 @@ en:
           delete: "Delete"
           duration: "Duration(days)"
           no_subject_display: "There are no subjects displayed!"
+        show:
+          name: "Task name"
+          description: "Description"
+          no_task_display: "There are no tasks displayed!"
+          tasks: "Tasks of subject"
 
   controller:
     session:

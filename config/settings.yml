@@ -4,3 +4,5 @@ course:
   per_page: 10
 subject:
   per_page: 10
+task:
+  per_page: 5

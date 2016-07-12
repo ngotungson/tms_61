@@ -22,3 +22,11 @@ end
     description: "You should complete tasks in subject #{subject_id}",
     duration: 7)
 end
+
+(1..10).each do |subject_id|
+  (1..5).each do |task_id|
+    Task.create(name: "Task #{task_id} - S #{subject_id}",
+      description: "Complete #{task_id} of subject#{subject_id}",
+      subject_id: subject_id)
+  end
+end
