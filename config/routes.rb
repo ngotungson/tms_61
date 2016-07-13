@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   namespace :supervisor do
     root "users#index"
     resources :users, except: :destroy
-    resources :subjects, except: :destroy
     resources :courses
+    resources :subjects
   end
 end

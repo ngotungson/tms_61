@@ -103,6 +103,7 @@ en:
           delete: "Delete"
           duration: "Duration(days)"
           no_subject_display: "There are no subjects displayed!"
+          confirm: "Are you want to delete this subject?"
         show:
           name: "Task name"
           description: "Description"
