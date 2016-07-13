@@ -1,6 +1,5 @@
 class Supervisor::SubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_subject, only: [:edit, :update]
 
   def index
     @subjects = Subject.page params[:page]
@@ -19,10 +18,10 @@ class Supervisor::SubjectsController < ApplicationController
   end
 
   def create
-    @subject = Subject.new subject_params
     if @subject.save
-      flash[:success] = t "controller.supervisor.subject.create_success"
-      redirect_to supervisor_root_url
+      flash[:success] = t "controller.common_flash.create_success",
+        object_name: Subject.name
+      redirect_to supervisor_subjects_url
     else
       render :new
     end
@@ -30,20 +29,28 @@ class Supervisor::SubjectsController < ApplicationController
 
   def update
     if @subject.update_attributes subject_params
-      flash.now[:success] = t "controller.supervisor.subject.update_success"
-      redirect_to supervisor_root_url
+      flash.now[:success] = t "controller.common_flash.update_success",
+        object_name: Subject.name
+      redirect_to supervisor_subjects_url
     else
       render :edit
     end
+  end
+
+  def destroy
+    if @subject.destroy
+      flash[:success] = t "controller.common_flash.delete_success",
+        object_name: Subject.name
+    else
+      flash[:danger] = t "controller.common_flash.delete_error",
+        object_name: Subject.name
+    end
+    redirect_to supervisor_subjects_url
   end
 
   private
   def subject_params
     params.require(:subject).permit :name, :description, :duration,
       tasks_attributes: [:id, :name, :subject_id, :_destroy]
-  end
-
-  def load_subject
-    @subject = Subject.find_by id: params[:id]
   end
 end

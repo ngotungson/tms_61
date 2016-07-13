@@ -11,7 +11,9 @@
   </td>
   <td>
     <p data-placement="top" data-toggle="tooltip">
-      <%= link_to t("view.supervisor.subject.index.delete"), "#",
+      <%= link_to t("view.supervisor.subject.index.delete"),
+        [:supervisor, subject], method: :delete,
+        data: {confirm: t("view.supervisor.subject.index.confirm")},
         class: "btn btn-danger btn-xs glyphicon glyphicon-remove" %>
     </p>
   </td>
