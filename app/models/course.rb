@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  enum status: [:start, :in_process, :closed]
+
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses, dependent: :destroy
   has_many :course_subjects, dependent: :destroy

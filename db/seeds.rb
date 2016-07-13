@@ -14,8 +14,15 @@ end
   Course.create(name: "Training Ruby on Rail phase #{course_id}",
     description: "Learning Ruby on rails phase #{course_id} with conplete Subjects",
     start_date: "2016-07-01",
-    end_date: "2016-08-01")
+    end_date: "2016-08-01",
+    status: 0)
 end
+
+Course.create(name: "Training Ruby on Rail phase 11",
+    description: "Learning Ruby on rails phase 11 with conplete Subjects",
+    start_date: "2016-07-01",
+    end_date: "2016-08-01",
+    status: 1)
 
 (1..10).each do |subject_id|
   Subject.create(name: "Subject #{subject_id}",

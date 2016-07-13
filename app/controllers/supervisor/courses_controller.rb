@@ -1,6 +1,6 @@
 class Supervisor::CoursesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_supervisor!
-  before_action :load_course, only: :show
 
   def index
     @courses = Course.page params[:page]
@@ -13,12 +13,18 @@ class Supervisor::CoursesController < ApplicationController
     @current_tab = params[:current_tab]
   end
 
-  private
-  def load_course
-    @course = Course.find_by id: params[:id]
-    unless @course
-      flash[:danger] = t ".notfound"
-      redirect_to supervisor_courses_url
+  def destroy
+    if @course.start?
+      if @course.destroy
+        flash[:success] = t "controller.common_flash.delete_success",
+          object_name: Course.name
+      else
+        flash[:danger] = t "controller.common_flash.delete_error",
+          object_name: Course.name
+      end
+    else
+      flash[:danger] = t "controller.supervisor.course.destroy.not_delete_course_started"
     end
+    redirect_to supervisor_courses_url
   end
 end
