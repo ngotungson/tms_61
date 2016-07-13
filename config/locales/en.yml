@@ -81,7 +81,17 @@ en:
           supervisors_on_course: "Supervisors on course"
           description: "Description:"
           date: "Date:"
-
+        edit:
+          title: "Edit course"
+        new:
+          title: "Course"
+        form:
+          save: "Save"
+          subject: "Subject of Course"
+          name: "Name"
+          description: "Description"
+          subject_duration: "Duration"
+          day: " days"
       subject:
         index:
           list_all_subject: "List all subjects"
@@ -120,23 +130,24 @@ en:
       error_signin: "Wrong email or password"
       pleaseloginassupervisor: "Please login as supervisor"
       success_signout: "Logout successfully"
-    user:
-      flash:
-        notexist: "This user doesn't exist"
-    supervisor:
-      course:
-        destroy:
-          not_delete_course_started: "This course is started. You can't delete it"
-
-  model:
-    user:
-      avatar_size_error: "should less than 5 MB"
     supervisor:
       subject:
         update_success: "Subject is updated"
         create_success: "Subject is created"
+      course:
+        destroy:
+          not_delete_course_started: "This course is started. You can't delete it"
+    user:
+      flash:
+        notexist: "This user doesn't exist"
   model:
+    user:
+      avatar_size_error: "should less than 5 MB"
     subject:
       error:
         must_be_diference: "must be difference"
         at_least_1: "at least 1"
+    course:
+      must_be_after_or_equal_end_date: "must be after or equal start date"
+      not_in_past: "not in past"
+      at_least_a_subject: "Course must be at least a subject"

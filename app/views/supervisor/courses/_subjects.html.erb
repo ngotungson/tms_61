@@ -1,0 +1,33 @@
+<h3><%= t "view.supervisor.course.form.subject" %></h3>
+
+<%= paginate @subjects %>
+
+<div class="form-group">
+  <div class="table table-bordred table-striped">
+    <table id="mytable" class="table table-bordred table-striped">
+      <thead>
+        <td><input type="checkbox" class="checkall" /></td>
+        <th><%= t "view.supervisor.course.form.name" %></th>
+        <th><%= t "view.supervisor.course.form.description" %></th>
+        <th><%= t "view.supervisor.course.form.subject_duration" %></th>
+      </thead>
+      <tbody>
+        <%= f.collection_check_boxes :subject_ids, @subjects, :id, :name do |subject| %>
+          <tr>
+            <%= subject.label class:"label-checkbox" do %>
+              <td><%= subject.check_box %></td>
+              <td><%= subject.object.name %></td>
+              <td><%= subject.object.description %></td>
+              <td>
+                <%= subject.object.duration %>
+                <%= t "view.supervisor.course.form.day" %>
+              </td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= paginate @subjects %>
