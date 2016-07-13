@@ -59,7 +59,7 @@ class Supervisor::CoursesController < ApplicationController
   private
   def course_params
     params.require(:course).permit :name, :description, :start_date,
-      :end_date, subject_ids: []
+      :end_date, subject_ids: [], user_ids: []
   end
 
   def load_subjects

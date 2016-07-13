@@ -79,6 +79,7 @@ en:
           supervisors: Supervisors
           subjects_on_course: "Subjects on course"
           trainees_on_course: "Trainees on course"
+          add_trainee_to_course: "Add trainee"
           supervisors_on_course: "Supervisors on course"
           description: "Description:"
           date: "Date:"
@@ -119,6 +120,8 @@ en:
           save: "Save"
           task_name: "Task"
           duration: "number of days"
+      assign_trainee:
+        save: "Save"
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"
@@ -142,6 +145,9 @@ en:
       user:
         destroy:
           not_delete_user: "This user was into course or is current user. You can't delete it"
+      assign_trainee:
+        error: "Can't add trainee into this course"
+        success: "Update successfully"
     user:
       flash:
         notexist: "This user doesn't exist"

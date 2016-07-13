@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   namespace :supervisor do
     root "users#index"
     resources :users
-    resources :courses
     resources :subjects
+    resources :courses do
+      resource :user_courses, only: [:update, :edit]
+    end
   end
 end
