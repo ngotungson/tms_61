@@ -1,6 +1,9 @@
 <div class="card">
   <div class="table-responsive">
     <h3><%= t "view.supervisor.course.show.trainees_on_course" %></h3>
+      <%= link_to t("view.supervisor.course.show.add_trainee_to_course"),
+        edit_supervisor_course_user_courses_path(@course),
+        class: "btn btn-primary" unless @course.closed? %>
     <table class="table table-bordred table-striped">
       <thead>
         <th><%= t "view.supervisor.user.index.name" %></th>

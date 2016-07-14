@@ -29,6 +29,12 @@ class User < ActiveRecord::Base
       (SELECT user_id FROM user_courses
       WHERE status = #{Course.statuses[:in_process]})")
   end
+  scope :not_in_course_process, -> do
+    where("id NOT IN
+      (SELECT user_id FROM user_courses
+      JOIN courses ON course_id = courses.id
+      WHERE courses.status = #{Course.statuses[:in_process]})")
+  end
 
   class << self
     def role_titles

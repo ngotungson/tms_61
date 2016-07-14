@@ -15,6 +15,10 @@ class Course < ActiveRecord::Base
   validates :subject_ids, presence: true
   validate :check_date
 
+  def duration
+    "#{start_date.to_formatted_s :short} : #{end_date.to_formatted_s :short}"
+  end
+
   private
   def check_date
     return if self.end_date.blank? || self.start_date.blank?
@@ -24,9 +28,5 @@ class Course < ActiveRecord::Base
     if self.start_date < Date.today
       self.errors.add :start_date, I18n.t("model.course.not_in_past")
     end
-  end
-
-  def duration
-    "#{start_date.to_formatted_s :short} : #{end_date.to_formatted_s :short}"
   end
 end

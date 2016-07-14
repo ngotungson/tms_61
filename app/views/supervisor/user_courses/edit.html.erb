@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="table-responsive">
+    <h3><%= t "view.supervisor.course.show.trainees_on_course" %></h3>
+    <table class="table table-bordred table-striped">
+      <thead>
+        <td><input type="checkbox" class="checkall" /></td>
+        <th><%= t "view.supervisor.user.index.name" %></th>
+        <th><%= t "view.supervisor.user.index.email" %></th>
+      </thead>
+      <tbody>
+        <%= form_for @course, url: supervisor_course_user_courses_path do |f| %>
+          <%= f.collection_check_boxes :user_ids,
+            @users, :id, :name, include_hidden: false do |user| %>
+            <tr>
+              <%= user.label class:"label-checkbox" do %>
+                <td><%= user.check_box %></td>
+                <td><%= user.object.name %></td>
+                <td><%= user.object.email %></td>
+              <% end %>
+            </tr>
+          <% end %>
+          <%= f.submit t("view.supervisor.assign_trainee.save"), class: "btn btn-primary" %>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

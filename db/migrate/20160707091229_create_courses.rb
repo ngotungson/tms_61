@@ -5,7 +5,7 @@ class CreateCourses < ActiveRecord::Migration
       t.string :description
       t.datetime :start_date
       t.datetime :end_date
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end
