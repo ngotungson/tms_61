@@ -54,6 +54,7 @@ en:
           password: "Password"
           action: "Action"
           no_user_display: "There are no user displayed!"
+          confirm_delete: "Are you want to delete this user?"
       course:
         index:
           list_all_courses: "List all courses"
@@ -138,9 +139,13 @@ en:
       course:
         destroy:
           not_delete_course_started: "This course is started. You can't delete it"
+      user:
+        destroy:
+          not_delete_user: "This user was into course or is current user. You can't delete it"
     user:
       flash:
         notexist: "This user doesn't exist"
+
   model:
     user:
       avatar_size_error: "should less than 5 MB"
@@ -152,3 +157,9 @@ en:
       must_be_after_or_equal_end_date: "must be after or equal start date"
       not_in_past: "not in past"
       at_least_a_subject: "Course must be at least a subject"
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+      user: "This user was into course. You can't delete it"
+    update:
+      project: "Not allowed to update this project."

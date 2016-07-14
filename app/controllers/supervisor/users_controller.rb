@@ -1,6 +1,5 @@
 class Supervisor::UsersController < ApplicationController
-  before_action :authenticate_supervisor!
-  before_action :load_user, only: [:edit, :update]
+  load_and_authorize_resource
 
   def index
     @users = User.page params[:page]
@@ -34,6 +33,17 @@ class Supervisor::UsersController < ApplicationController
     end
   end
 
+  def destroy
+    if @user.destroy
+      flash[:success] = t "controller.common_flash.delete_success",
+        object_name: User.name
+    else
+      flash[:danger] = t "controller.common_flash.delete_error",
+        object_name: User.name
+    end
+    redirect_to supervisor_users_url
+  end
+
   private
   def user_params
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
@@ -42,13 +52,5 @@ class Supervisor::UsersController < ApplicationController
     end
     params.require(:user).permit :name, :email, :password, :password_confirmation,
       :avatar, :role
-  end
-
-  def load_user
-    @user = User.find_by id: params[:id]
-    unless @user
-      flash[:danger] = t "controller.user.flash.notexist"
-      redirect_to new_user_session_url
-    end
   end
 end

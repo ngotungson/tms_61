@@ -2,13 +2,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, alert: :exception.message
+    flash[:warning] = exception.message
+    redirect_to_back_or_default
   end
 
-  def authenticate_supervisor!
-    unless current_user.supervisor?
-      flash[:danger] = t "controller.session.pleaseloginassupervisor"
-      redirect_to new_user_session_url
+  def redirect_to_back_or_default default = root_url
+    if request.env["HTTP_REFERER"].present? and request.env["HTTP_REFERER"] != request.env["REQUEST_URI"]
+      redirect_to :back
+    else
+      redirect_to default
     end
   end
 end
