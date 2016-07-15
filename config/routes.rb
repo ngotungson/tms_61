@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {sessions: "users/sessions"}
 
+  resources :user_courses, only: :index
+
   namespace :supervisor do
     root "users#index"
     resources :users

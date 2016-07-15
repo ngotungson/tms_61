@@ -33,7 +33,8 @@ class User < ActiveRecord::Base
     where("id NOT IN
       (SELECT user_id FROM user_courses
       JOIN courses ON course_id = courses.id
-      WHERE courses.status = #{Course.statuses[:in_process]})")
+      WHERE courses.status = #{Course.statuses[:in_process]}
+      AND courses.id IS NOT course_id")
   end
 
   class << self
