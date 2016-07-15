@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h2><%= t "view.user_courses.index.my_courses" %></h2>
+      </br>
+      <div class="table-responsive">
+        <table id="mytable" class="table table-bordred table-striped">
+          <thead>
+            <th><%= t "view.user_courses.course.index.name" %></th>
+            <th><%= t "view.user_course.course.index.description" %></th>
+            <th><%= t "view.supervisor.course.index.start_date" %></th>
+            <th><%= t "view.supervisor.course.index.end_date" %></th>
+            <th><%= t "view.supervisor.course.index.action" %></th>
+          </thead>
+          <tbody>
+            <% @user_courses.each do |user_course| %>
+              <tr>
+                <td><%= link_to user_course.course.name, "#" %></td>
+                <td><%= user_course.course.description %></td>
+                <td><%= user_course.course.start_date %></td>
+                <td><%= user_course.course.end_date %></td>
+                <td><%= user_course.course.status %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= paginate @user_courses %>
