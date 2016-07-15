@@ -108,8 +108,14 @@ en:
           edit: "Edit"
           delete: "Delete"
           duration: "Duration(days)"
+          course_subject_status: "Status"
+          status_not_started: "Start"
+          status_in_process: "In process"
+          status_closed: "Close"
+          subject_course_closed: "Subject of this course is closed!"
           no_subject_display: "There are no subjects displayed!"
           confirm: "Are you want to delete this subject?"
+          save_course_subject_status: "Save changes"
         show:
           name: "Task name"
           description: "Description"
@@ -126,6 +132,11 @@ en:
           duration: "number of days"
       assign_trainee:
         save: "Save"
+      course_subject:
+        show:
+          subject_of_course: "Subject in courses"
+          task_of_subject: "Tasks in subject"
+          course_should_be_start: "Active this course before start subject."
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"

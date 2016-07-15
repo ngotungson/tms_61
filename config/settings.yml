@@ -7,6 +7,9 @@ course:
 subject:
   per_page: 2
   subject_param: "subject_page"
+course_subject:
+  subject_course_param: "subject_course_page"
+  task_subject_param: "task_subject_page"
 task:
   per_page: 5
 build_task: 1
