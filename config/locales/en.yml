@@ -80,6 +80,7 @@ en:
           subjects_on_course: "Subjects on course"
           trainees_on_course: "Trainees on course"
           add_trainee_to_course: "Add trainee"
+          add_supervisor_to_course: "Add supervisor"
           supervisors_on_course: "Supervisors on course"
           description: "Description:"
           date: "Date:"
@@ -148,6 +149,8 @@ en:
       assign_trainee:
         error: "Can't add trainee into this course"
         success: "Update successfully"
+      assign_supervisor:
+        error: "Can't add supervisor into this course"
     user:
       flash:
         notexist: "This user doesn't exist"

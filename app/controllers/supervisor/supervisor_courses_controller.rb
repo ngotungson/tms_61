@@ -1,6 +1,6 @@
-class Supervisor::UserCoursesController < ApplicationController
+class Supervisor::SupervisorCoursesController < ApplicationController
   load_and_authorize_resource :course
-  before_action :load_trainee, only: :edit
+  before_action :load_supervisor, only: :edit
 
   def edit
   end
@@ -10,7 +10,7 @@ class Supervisor::UserCoursesController < ApplicationController
       flash[:success] = t "controller.supervisor.assign_trainee.success"
       redirect_to supervisor_course_url @course
     else
-      flash[:danger] = t "controller.supervisor.assign_trainee.error"
+      flash[:danger] = t "controller.supervisor.assign_supervisor.error"
       render :edit
     end
   end
@@ -20,11 +20,7 @@ class Supervisor::UserCoursesController < ApplicationController
     params.require(:course).permit user_ids: []
   end
 
-  def load_trainee
-    if @course.start?
-      @users = User.trainee
-    else
-      @users = User.trainee.not_in_course_process
-    end
+  def load_supervisor
+    @users = User.supervisor
   end
 end
