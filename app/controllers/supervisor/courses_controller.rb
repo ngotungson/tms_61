@@ -7,7 +7,9 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def show
-    @subjects = @course.subjects.page params[:subject_page]
+    @subjects =  Kaminari.paginate_array(@course.subjects.
+      map{|subject| [subject, CourseSubject.find_by(@course.id, subject.id)]}).
+      page params[:subject_page]
     @trainees = @course.users.merge(User.trainee).page params[:trainee_page]
     @supervisors = @course.users.merge(User.supervisor).page params[:supervisor_page]
     @current_tab = params[:current_tab]

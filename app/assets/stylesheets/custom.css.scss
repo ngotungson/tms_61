@@ -137,6 +137,14 @@ header {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.07);
 }
 
+#min_height {
+  min-height: 350px !important;
+}
+
 .course-name, subject-name {
   padding-bottom: 1em;
+}
+
+#subject_of_course_closed {
+  color: red;
 }

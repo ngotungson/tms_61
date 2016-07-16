@@ -1,16 +1,40 @@
-<div class="card">
+<div class="card" id="min_height">
   <div class="table-responsive">
     <h3><%= t "view.supervisor.course.show.subjects_on_course" %></h3>
     <table class="table table-bordred table-striped">
       <thead>
         <th><%= t "view.supervisor.subject.index.name" %></th>
         <th><%= t "view.supervisor.subject.index.duration" %></th>
+        <th><%= t "view.supervisor.subject.index.action" %></th>
       </thead>
       <tbody>
-        <% subjects.each do |subject| %>
+        <% subjects.each do |subject, course_subject| %>
           <tr>
-            <td><%= link_to subject.name, "#" %></td>
+            <td><%= link_to subject.name, [:supervisor, subject] %></td>
             <td><%= subject.duration %></td>
+            <% if @course.in_process? %>
+              <td class="chilrd-m-b-0">
+                <% if course_subject.in_process? %>
+                  <%= link_to t("view.supervisor.subject.index.status_closed"),
+                    supervisor_course_course_subjects_path(@course, subject_id: subject.id,
+                    course_subject: {status: :closed}), method: :patch,
+                    class: "btn btn-danger" %>
+                <% elsif course_subject.not_started? %>
+                  <%= link_to t("view.supervisor.subject.index.status_not_started"),
+                    supervisor_course_course_subjects_path(@course, subject_id: subject.id,
+                    course_subject: {status: :in_process}), method: :patch,
+                    class: "btn btn-success" %>
+                <% else %>
+                  <p id="subject_of_course_closed">
+                    <%= t "view.supervisor.subject.index.subject_course_closed" %>
+                  </p>
+                <% end %>
+              </td>
+            <% else %>
+              <td class="right-align">
+                <%= t "view.supervisor.course_subject.show.course_should_be_start" %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
