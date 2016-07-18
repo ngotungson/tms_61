@@ -82,14 +82,19 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def update_status
-    if params[:status] = :in_process
+    if params[:status] == Course.statuses[:in_process].to_s
       if @trainees.in_course_process.blank?
-        @course.update_attribute :status, Course.statuses[:in_process]
+        @course.update_attributes status: Course.statuses[:in_process]
         flash[:success] = t "controller.supervisor.course.update.started"
       else
         flash[:danger] = t "controller.supervisor.course.update.reject"
       end
+
+    elsif params[:status] == Course.statuses[:closed].to_s
+      @course.update_attributes status: Course.statuses[:closed]
+      flash[:success] = t "controller.supervisor.course.update.finished"
     end
+
     redirect_to supervisor_course_url(@course)
   end
 end

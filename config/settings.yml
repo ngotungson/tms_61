@@ -9,7 +9,7 @@ course:
   status_label:
     not_started: "info"
     in_process: "success"
-    closed: "closed"
+    closed: "danger"
 subject:
   per_page: 5
   subject_param: "subject_page"
