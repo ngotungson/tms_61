@@ -1,0 +1,20 @@
+<%= f.collection_check_boxes :user_ids,
+  @trainees, :id, :name, include_hidden: false do |user| %>
+  <tr>
+    <%= user.label class:"label-checkbox" do %>
+      <td><%= user.check_box %></td>
+      <td><%= user.object.name %></td>
+      <td><%= user.object.email %></td>
+      <td><%= user.object.role %></td>
+      <% if user.object.in_process? %>
+        <td>
+          <span class="label label-success"><%= t ".in_process" %></span>
+        </td>
+      <% else %>
+        <td>
+          <span class="label label-info"><%= t ".free" %></span>
+        </td>
+      <% end %>
+    <% end %>
+  </tr>
+<% end %>

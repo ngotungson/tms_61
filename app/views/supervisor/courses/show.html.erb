@@ -14,6 +14,11 @@
       <strong><%= t "view.supervisor.course.show.date" %></strong>
     </span>
     <p><%= @course.duration %></p>
+    <p>
+      <%= link_to t("view.supervisor.course.show.add_user_to_course"),
+        edit_supervisor_course_user_courses_path(@course),
+        class: "btn btn-primary" unless @course.closed? %>
+    </p>
     <% if @course.not_started? %>
       <%= link_to t(".Start"), supervisor_course_url(@course,
         status: :in_process), method: :patch, class: "btn btn-success" %>

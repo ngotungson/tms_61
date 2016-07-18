@@ -1,0 +1,11 @@
+<%= f.collection_check_boxes :user_ids,
+  @supervisors, :id, :name, include_hidden: false do |user| %>
+  <tr>
+    <%= user.label class:"label-checkbox" do %>
+      <td><%= user.check_box %></td>
+      <td><%= user.object.name %></td>
+      <td><%= user.object.email %></td>
+      <td><%= user.object.role %></td>
+    <% end %>
+  </tr>
+<% end %>

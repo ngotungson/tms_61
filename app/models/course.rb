@@ -51,7 +51,7 @@ class Course < ActiveRecord::Base
     self.users.trainee.each do |trainee|
       self.subjects.each do |subject|
         UserSubject.first_or_create user_id: trainee.id,
-          course_id: course.id, subject_id: subject.id
+          course_id: id, subject_id: subject.id
       end
     end
   end
