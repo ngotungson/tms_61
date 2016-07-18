@@ -21,7 +21,7 @@ class Supervisor::UserCoursesController < ApplicationController
   end
 
   def load_trainee
-    if @course.start?
+    if @course.not_started?
       @users = User.trainee
     else
       @users = User.trainee.not_in_course_process

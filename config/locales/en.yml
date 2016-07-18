@@ -58,6 +58,7 @@ en:
           action: "Action"
           no_user_display: "There are no user displayed!"
           confirm_delete: "Are you want to delete this user?"
+          status: "Status"
       course:
         index:
           list_all_courses: "List all courses"
@@ -69,6 +70,7 @@ en:
           delete: "Delete"
           start_date: "Start date"
           end_date: "End date"
+          duration: "Duration"
           status: "Status"
           confirm: "Are you want to delete this course?"
           no_course_display: "There are no course displayed!"
@@ -130,6 +132,8 @@ en:
           save: "Save"
           task_name: "Task"
           duration: "number of days"
+        reject_list:
+          header: "The following trainees is on another actived course. Please reject them"
       assign_trainee:
         save: "Save"
       course_subject:
@@ -157,6 +161,13 @@ en:
       course:
         destroy:
           not_delete_course_started: "This course is started. You can't delete it"
+        user_subject:
+          started: "Course is started"
+        update:
+          started: "This course is started"
+          reject: |
+            "Your course contains trainees who is already in other process.
+            Please reject them to start"
       user:
         destroy:
           not_delete_user: "This user was into course or is current user. You can't delete it"
@@ -180,6 +191,10 @@ en:
       must_be_after_or_equal_end_date: "must be after or equal start date"
       not_in_past: "not in past"
       at_least_a_subject: "Course must be at least a subject"
+      label:
+        new: "New"
+        in_process: "In Process"
+        closed: "Closed"
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."

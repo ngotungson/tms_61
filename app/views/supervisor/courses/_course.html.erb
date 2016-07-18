@@ -1,9 +1,10 @@
 <tr>
   <td><%= link_to course.name, [:supervisor, course] %></td>
   <td><%= course.description %></td>
-  <td><%= course.start_date %></td>
-  <td><%= course.end_date %></td>
-  <td><%= course.status %></td>
+  <td><%= course.duration %></td>
+  <td>
+    <span class="label label-<%= course.status_label %>"><%= course.status_content %></span>
+  </td>
   <td class="col-ations text-right">
     <p data-placement="top" data-toggle="tooltip">
       <%= link_to t("view.supervisor.course.index.edit"),
