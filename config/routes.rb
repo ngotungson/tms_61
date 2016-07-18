@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {sessions: "users/sessions"}
 
   resources :user_courses, only: [:index, :show] do
-    resource :user_subjects, only: :update
+    resources :user_subjects, only: [:update, :show]
   end
 
   namespace :supervisor do

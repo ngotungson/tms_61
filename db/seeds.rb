@@ -40,6 +40,6 @@ end
 # #   end
 # # end
 
-(1..6).each do |id|
-  UserCourse.create(course_id: 1, user_id: "#{id}")
-end
+# (1..6).each do |id|
+#   UserCourse.create(course_id: 1, user_id: "#{id}")
+# end

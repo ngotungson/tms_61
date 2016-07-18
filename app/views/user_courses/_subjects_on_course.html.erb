@@ -10,7 +10,8 @@
       <tbody>
         <% subjects.each do |subject, course_subject| %>
           <tr>
-            <td><%= link_to subject.name, "#" %></td>
+            <td><%= link_to subject.name,
+              user_course_user_subject_path(@user_course, subject) %></td>
             <td><%= subject.duration %></td>
           </tr>
         <% end %>
