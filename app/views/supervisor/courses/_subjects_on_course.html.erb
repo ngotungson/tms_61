@@ -16,14 +16,14 @@
               <td class="chilrd-m-b-0">
                 <% if course_subject.in_process? %>
                   <%= link_to t("view.supervisor.subject.index.status_closed"),
-                    supervisor_course_course_subjects_path(@course, subject_id: subject.id,
-                    course_subject: {status: :closed}), method: :patch,
+                    supervisor_course_course_subjects_path(@course, subject_id:
+                    subject.id, course_subject: {status: :closed}), method: :patch,
                     class: "btn btn-danger" %>
                 <% elsif course_subject.not_started? %>
                   <%= link_to t("view.supervisor.subject.index.status_not_started"),
-                    supervisor_course_course_subjects_path(@course, subject_id: subject.id,
-                    course_subject: {status: :in_process}), method: :patch,
-                    class: "btn btn-success" %>
+                    supervisor_course_course_subjects_path(@course, subject_id:
+                    subject.id, course_subject: {status: :in_process}),
+                    method: :patch, class: "btn btn-success" %>
                 <% else %>
                   <p id="subject_of_course_closed">
                     <%= t "view.supervisor.subject.index.subject_course_closed" %>

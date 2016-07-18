@@ -40,7 +40,6 @@ class Supervisor::CoursesController < ApplicationController
     else
       render :edit
     end
-    redirect_to supervisor_courses_url
   end
 
   def destroy

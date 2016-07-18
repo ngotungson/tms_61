@@ -2,6 +2,8 @@ user:
   per_page: 2
   trainee_param: "trainee_page"
   supervisor_param: "supervisor_page"
+  user_subject:
+    per_page: 2
 course:
   per_page: 2
 subject:

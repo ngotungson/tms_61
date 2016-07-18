@@ -15,7 +15,7 @@ class Supervisor::CourseSubjectsController < ApplicationController
 
   private
   def course_subject_params
-    params.require(:course_subject).permit :status
+    params.require(:course_subject).permit :course_id, :subject_id, :status
   end
 
   def load_course_subject

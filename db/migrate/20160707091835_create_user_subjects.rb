@@ -3,8 +3,8 @@ class CreateUserSubjects < ActiveRecord::Migration
     create_table :user_subjects do |t|
       t.integer :user_id
       t.integer :subject_id
-      t.integer :course_subject_id
-      t.integer :status
+      t.integer :user_course_id
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end

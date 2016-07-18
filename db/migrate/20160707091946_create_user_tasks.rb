@@ -4,8 +4,7 @@ class CreateUserTasks < ActiveRecord::Migration
       t.integer :user_id
       t.integer :task_id
       t.integer :user_subject_id
-      t.text :report
-      t.integer :status
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end

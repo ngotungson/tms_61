@@ -1,0 +1,24 @@
+<% if user_subject.user_tasks.count == user_subject.subject.tasks.count %>
+  <tr>
+    <td>
+      <p><%= user_subject.subject.name %></p>
+    </td>
+    <% if user_subject.finished? %>
+      <td>
+        <p class="un_complete_tasks">
+          <%= t "view.user_course.show.user_subject_finished" %>
+        </p>
+      </td>
+    <% else %>
+      <td>
+        <%= link_to t("view.user_course.show.finish"),
+          user_course_user_subjects_path(user_id: user_subject.user_id,
+          subject_id: user_subject.subject.id, user_course_id: @user_course.id,
+          user_subject: {status: :finished}), method: :patch,
+          class: "btn btn-danger" %>
+      </td>
+    <% end%>
+  </tr>
+<% else %>
+  <p class="un_complete_tasks"><%= t "view.user_course.show.tasks_of_subject_uncompleted" %></p>
+<% end %>
