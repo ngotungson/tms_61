@@ -44,6 +44,14 @@ en:
     user_course:
       index:
         my_courses: "My courses"
+      show:
+        no_user_subjetc_displayed: "There are not any subject of user displayed!"
+        user_subject: "Subject on this course of you "
+        user_subject_name: "Name"
+        user_subject_action: "Action"
+        tasks_of_subject_uncompleted: "You are not complete tasks for this subject"
+        finish: "Finish"
+        user_subject_finished: "This subject was completed."
     supervisor:
       user:
         index:
@@ -141,6 +149,8 @@ en:
           subject_of_course: "Subject in courses"
           task_of_subject: "Tasks in subject"
           course_should_be_start: "Active this course before start subject."
+          finish: "Finish"
+          user_subject_finished: "This subject was completed."
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"
