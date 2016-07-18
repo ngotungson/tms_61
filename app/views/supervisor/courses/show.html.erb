@@ -1,7 +1,10 @@
 <div class="col-md-4">
   <div class="card">
     <center>
-      <h3 class="course-name"><%= @course.name %></h3>
+      <h3 class="course-name">
+        <%= @course.name %>
+        <span class="label label-<%= @course.status_label %>"><%= @course.status_content %></span>
+      </h3>
     </center>
     <span>
       <strong><%= t "view.supervisor.course.show.description" %></strong>
@@ -11,6 +14,10 @@
       <strong><%= t "view.supervisor.course.show.date" %></strong>
     </span>
     <p><%= @course.duration %></p>
+    <% if @course.not_started? %>
+      <%= link_to t(".Start"), supervisor_course_url(@course,
+        status: :in_process), method: :patch, class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
 

@@ -1,6 +1,8 @@
 class Supervisor::CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :load_subjects, except: [:show, :destroy]
+  before_action :load_supervisor, only: [:show]
+  before_action :load_trainees, only: [:show, :update]
+  before_action :load_subjects, only:[:new, :edit]
 
   def index
     @courses = Course.page params[:page]
@@ -10,8 +12,8 @@ class Supervisor::CoursesController < ApplicationController
     @subjects =  Kaminari.paginate_array(@course.subjects.
       map{|subject| [subject, CourseSubject.find_by(@course.id, subject.id)]}).
       page params[:subject_page]
-    @trainees = @course.users.merge(User.trainee).page params[:trainee_page]
-    @supervisors = @course.users.merge(User.supervisor).page params[:supervisor_page]
+    @trainees = @trainees.page params[:trainee_page]
+    @supervisors = @supervisors.page params[:supervisor_page]
     @current_tab = params[:current_tab]
   end
 
@@ -33,27 +35,20 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def update
-    if @course.update_attributes course_params
-      flash.now[:success] = t "controller.common_flash.update_success",
-        object_name: Course.name
-      redirect_to supervisor_courses_url
+    if params[:status]
+      update_status
     else
-      render :edit
+      update_info
     end
-    redirect_to supervisor_courses_url
   end
 
   def destroy
-    if @course.start?
-      if @course.destroy
-        flash[:success] = t "controller.common_flash.delete_success",
-          object_name: Course.name
-      else
-        flash[:danger] = t "controller.common_flash.delete_error",
-          object_name: Course.name
-      end
+    if @course.destroy
+      flash[:success] = t "controller.common_flash.delete_success",
+        object_name: Course.name
     else
-      flash[:danger] = t "controller.supervisor.course.destroy.not_delete_course_started"
+      flash[:danger] = t "controller.common_flash.delete_error",
+        object_name: Course.name
     end
     redirect_to supervisor_courses_url
   end
@@ -66,5 +61,35 @@ class Supervisor::CoursesController < ApplicationController
 
   def load_subjects
     @subjects = Subject.page params[:page]
+  end
+
+  def load_trainees
+    @trainees = @course.users.trainee
+  end
+
+  def load_supervisor
+    @supervisors = @course.users.supervisor
+  end
+
+  def update_info
+    if @course.update_attributes course_params
+      flash.now[:success] = t "controller.common_flash.update_success",
+        object_name: Course.name
+      redirect_to supervisor_courses_url
+    else
+      render :edit
+    end
+  end
+
+  def update_status
+    if params[:status] = :in_process
+      if @trainees.in_course_process.blank?
+        @course.update_attribute :status, Course.statuses[:in_process]
+        flash[:success] = t "controller.supervisor.course.update.started"
+      else
+        flash[:danger] = t "controller.supervisor.course.update.reject"
+      end
+    end
+    redirect_to supervisor_course_url(@course)
   end
 end

@@ -10,35 +10,36 @@ User.create(name: "Supervisor",
     role: 1)
 end
 
-(1..10).each do |course_id|
-  Course.create(name: "Training Ruby on Rail phase #{course_id}",
-    description: "Learning Ruby on rails phase #{course_id} with conplete Subjects",
-    start_date: "2016-07-01",
-    end_date: "2016-08-01",
-    status: 0)
-end
+# (1..5).each do |course_id|
+#   Course.create(name: "Training Ruby on Rail phase #{course_id}",
+#     description: "Learning Ruby on rails phase #{course_id} with conplete Subjects",
+#     start_date: "2016-10-01",
+#     end_date: "2016-12-01",
+#     status: 0)
+# end
 
-Course.create(name: "Training Ruby on Rail phase 11",
-    description: "Learning Ruby on rails phase 11 with conplete Subjects",
-    start_date: "2016-07-01",
-    end_date: "2016-08-01",
-    status: 1)
+# (1..5).each do |course_id|
+#   Course.create(name: "Training Ruby on Rail phase #{course_id}",
+#     description: "Learning Ruby on rails phase #{course_id} with conplete Subjects",
+#     start_date: "2016-10-01",
+#     end_date: "2016-12-01",
+#     status: 1)
+# end
 
-(1..10).each do |subject_id|
-  Subject.create(name: "Subject #{subject_id}",
-    description: "You should complete tasks in subject #{subject_id}",
-    duration: 7)
-end
+# # (1..10).each do |subject_id|
+# #   Subject.create(name: "Subject #{subject_id}",
+# #     description: "You should complete tasks in subject #{subject_id}",
+# #     duration: 7)
+# # end
 
-(1..10).each do |subject_id|
-  (1..5).each do |task_id|
-    Task.create(name: "Task #{task_id} - S #{subject_id}",
-      description: "Complete #{task_id} of subject#{subject_id}",
-      subject_id: subject_id)
-  end
-end
+# # (1..10).each do |subject_id|
+# #   (1..5).each do |task_id|
+# #     Task.create(name: "Task #{task_id} - S #{subject_id}",
+# #       description: "Complete #{task_id} of subject#{subject_id}",
+# #       subject_id: subject_id)
+# #   end
+# # end
 
 (1..6).each do |id|
-  CourseSubject.create(course_id: 1, subject_id: "#{id}")
   UserCourse.create(course_id: 1, user_id: "#{id}")
 end
