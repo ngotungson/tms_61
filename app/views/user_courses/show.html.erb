@@ -1,37 +1,41 @@
-<div class="container">
-  <div class="row" id="show-subject">
-    <div class="col-md-4">
-      <div class="panel panel-primary" id="panel-subject-show">
-        <div class="panel-heading">
-          <h2 class="flow-text center-align">
-            <%= @user_course.course.name %>
-          </h2>
-        </div>
-        <div class="panel-body">
-          <%= @user_course.course.description %>
-        </div>
-      </div>
+<div class="col-md-4">
+  <div class="card">
+    <center>
+      <h3 class="course-name">
+        <%= @course.name %>
+        <span class="label label-<%= @course.status_label %>">
+          <%= @course.status_content %></span>
+      </h3>
+    </center>
+    <span>
+      <strong><%= t "view.supervisor.course.show.description" %></strong>
+    </span>
+    <p><%= @course.description %></p>
+    <span>
+      <strong><%= t "view.supervisor.course.show.date" %></strong>
+    </span>
+    <p><%= @course.duration %></p>
+  </div>
+</div>
+
+<div class="col-md-8" id= "courses-tab" data-current-tab=<%= @current_tab %> >
+  <ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#subjects">
+      <%= t "view.supervisor.course.show.subjects" %></a></li>
+    <li><a data-toggle="tab" href="#trainees">
+      <%= t "view.supervisor.course.show.trainees" %></a></li>
+    <li><a data-toggle="tab" href="#supervisors">
+      <%= t "view.supervisor.course.show.supervisors" %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div id="subjects" class="tab-pane fade in active">
+      <%= render partial: "subjects_on_course", locals: {subjects: @subjects} %>
     </div>
-    <div class="col-md-8">
-      <div class="row">
-        <h3 class="flow-text center-align">
-          <%= t "view.user_course.show.user_subject" %>
-        </h3>
-      </div>
-      </br>
-      <div class="row">
-        <table id="mytable" class="table table-bordred table-striped">
-          <thead>
-            <th><%= t "view.user_course.show.user_subject_name" %></th>
-            <th><%= t "view.user_course.show.user_subject_action" %></th>
-          </thead>
-          <tbody>
-            <%= render(partial: "user_subject_course", collection: @user_subjects,
-              as: :user_subject) || t("view.user_course.show.no_user_subjetc_displayed")  %>
-          </tbody>
-        </table>
-      </div>
-      <%= paginate @user_subjects %>
+    <div id="trainees" class="tab-pane fade">
+      <%= render partial: "trainees_on_course", locals: {trainees: @trainees} %>
+    </div>
+    <div id="supervisors" class="tab-pane fade">
+      <%= render partial: "supervisors_on_course", locals: {supervisors: @supervisors} %>
     </div>
   </div>
 </div>

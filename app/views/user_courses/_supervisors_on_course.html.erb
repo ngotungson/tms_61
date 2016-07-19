@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="table-responsive">
+    <h3><%= t "view.supervisor.course.show.supervisors_on_course" %></h3>
+    <table class="table table-bordred table-striped">
+      <thead>
+        <th><%= t "view.supervisor.user.index.name" %></th>
+        <th><%= t "view.supervisor.user.index.email" %></th>
+      </thead>
+      <tbody>
+        <% supervisors.each do |supervisor| %>
+          <tr>
+            <td><%= link_to supervisor.name, "#" %></td>
+            <td><%= supervisor.email %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate supervisors, param_name: Settings.user.supervisor_param,
+    params: {current_tab: "supervisors"} %>
+</div>

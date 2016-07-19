@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="table-responsive">
+    <h3><%= t "view.supervisor.course.show.trainees_on_course" %></h3>
+    <table class="table table-bordred table-striped">
+      <thead>
+        <th><%= t "view.supervisor.user.index.name" %></th>
+        <th><%= t "view.supervisor.user.index.email" %></th>
+        <th><%= t "view.supervisor.user.index.status" %></th>
+      </thead>
+      <tbody>
+        <% trainees.each do |trainee| %>
+            <tr>
+              <td><%= link_to trainee.name, "#" %></td>
+              <td><%= trainee.email %></td>
+              <% if trainee.in_process? %>
+                <td><span class="label label-success"> <%= t ".in_process" %> </span></td>
+              <% else %>
+                <td><span class="label label-info"> <%= t ".free" %> </span></td>
+              <% end %>
+            </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate trainees, param_name: Settings.user.trainee_param,
+    params: {current_tab: "trainees"} %>
+</div>
