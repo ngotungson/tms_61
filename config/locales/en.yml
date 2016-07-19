@@ -41,6 +41,9 @@ en:
       createbutton: "Create"
       updateheader: "Edit user"
       updatebutton: "Update"
+      email: "Email:"
+      role: "Role:"
+      my_course: "My Courses"
     user_course:
       index:
         my_courses: "My courses"
