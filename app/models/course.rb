@@ -1,4 +1,6 @@
 class Course < ActiveRecord::Base
+  include ActivityLog
+
   enum status: [:not_started, :in_process, :closed]
 
   has_many :user_courses, dependent: :destroy

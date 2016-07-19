@@ -1,4 +1,6 @@
 class UserSubject < ActiveRecord::Base
+  include ActivityLog
+
   enum status: [:not_started, :in_process, :finished]
 
   belongs_to :user

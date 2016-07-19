@@ -19,6 +19,7 @@ gem "mini_magick", "4.5.1"
 gem "fog", "1.38.0"
 
 gem "cancancan", "~> 1.10"
+gem "public_activity"
 
 group :development, :test do
   gem "sqlite3", "1.3.11"
