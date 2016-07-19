@@ -22,3 +22,7 @@ task:
 
 build_task: 1
 least_task: 1
+assign_trainee: 1
+remove_trainee: 2
+mail_from: "tms61@gmail.com"
+layout: "mailer"
