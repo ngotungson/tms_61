@@ -3,7 +3,8 @@ Rails.application.routes.draw do
   get "contact", to: "static_pages#contact"
   get "help", to: "static_pages#help"
 
-  devise_for :users, controllers: {sessions: "users/sessions"}
+  devise_for :users, controllers: {sessions: "users/sessions",
+    omniauth_callbacks: "omniauth_callbacks"}
 
   resources :user_courses, only: [:index, :show] do
     resources :user_subjects, only: [:update, :show]

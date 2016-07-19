@@ -1,0 +1,19 @@
+development:
+  facebook_key: "308347782835324"
+  facebook_secret: "17d1db0fe65c9dd9bf578f9b93a8e644"
+
+  twitter_key: "SBJPuXKWdYRDPZBnfDho2P6X9"
+  twitter_secret: "9EVu72CXY69romw181doKvmEvr5Pc4vbC4lSxqGMR41QKxCKET"
+
+  google_key: "696474647228-t86f005d87p2b9po4rarddkmv95s9oa2.apps.googleusercontent.com"
+  google_secret: "BjeKekWskP-H9q5Q4z5fiMhG"
+
+production:
+  facebook_key: "308347782835324"
+  facebook_secret: "17d1db0fe65c9dd9bf578f9b93a8e644"
+
+  twitter_key: "SBJPuXKWdYRDPZBnfDho2P6X9"
+  twitter_secret: "9EVu72CXY69romw181doKvmEvr5Pc4vbC4lSxqGMR41QKxCKET"
+
+  google_key: "696474647228-t86f005d87p2b9po4rarddkmv95s9oa2.apps.googleusercontent.com"
+  google_secret: "BjeKekWskP-H9q5Q4z5fiMhG"

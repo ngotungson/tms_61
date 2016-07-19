@@ -26,6 +26,24 @@
           </li>
         <% else %>
           <li><%= link_to t("view.layout.login"), new_user_session_path %></li>
+          <li>
+            <%= link_to user_facebook_omniauth_authorize_path do%>
+              <%= image_tag("icon_facebook.png",
+                class: "img-circle icon_image_social") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_twitter_omniauth_authorize_path do%>
+              <%= image_tag("icon_twitter.jpg",
+                class: "img-circle icon_image_social") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to user_omniauth_authorize_path(:google_oauth2) do%>
+              <%= image_tag("google_plus_icon.png",
+                class: "img-circle icon_image_social") %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </nav>
