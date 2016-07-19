@@ -1,8 +1,14 @@
 class Supervisor::UserCoursesController < ApplicationController
   load_and_authorize_resource :course
-  before_action :load_trainee, only: :edit
 
   def edit
+    if @course.not_started?
+      @trainees = User.trainee
+    else
+      @trainees = User.trainee.not_in_course_process
+    end
+    @supervisors = User.supervisor
+    @course_users = @course.users
   end
 
   def update
@@ -17,14 +23,7 @@ class Supervisor::UserCoursesController < ApplicationController
 
   private
   def course_params
+    params[:course] = {user_ids: []} if params[:course].nil?
     params.require(:course).permit user_ids: []
-  end
-
-  def load_trainee
-    if @course.not_started?
-      @users = User.trainee
-    else
-      @users = User.trainee.not_in_course_process
-    end
   end
 end

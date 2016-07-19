@@ -15,7 +15,6 @@ Rails.application.routes.draw do
     resources :subjects
     resources :courses do
       resource :user_courses, only: [:update, :edit]
-      resource :supervisor_courses, only: [:update, :edit]
       resource :course_subjects, only: :update
     end
   end

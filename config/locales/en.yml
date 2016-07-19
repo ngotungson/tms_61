@@ -90,10 +90,10 @@ en:
           subjects: Subjects
           trainees: Trainees
           supervisors: Supervisors
+          user_on_course: "Users on course"
           subjects_on_course: "Subjects on course"
           trainees_on_course: "Trainees on course"
-          add_trainee_to_course: "Add trainee"
-          add_supervisor_to_course: "Add supervisor"
+          add_user_to_course: "Add Users"
           supervisors_on_course: "Supervisors on course"
           description: "Description:"
           date: "Date:"
@@ -182,10 +182,8 @@ en:
         destroy:
           not_delete_user: "This user was into course or is current user. You can't delete it"
       assign_trainee:
-        error: "Can't add trainee into this course"
+        error: "Can't add user into this course"
         success: "Update successfully"
-      assign_supervisor:
-        error: "Can't add supervisor into this course"
     user:
       flash:
         notexist: "This user doesn't exist"
