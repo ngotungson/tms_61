@@ -52,6 +52,10 @@ en:
         tasks_of_subject_uncompleted: "You are not complete tasks for this subject"
         finish: "Finish"
         user_subject_finished: "This subject was completed."
+    user_subject:
+      show:
+        update: "Update"
+        finish: "Finish"
     supervisor:
       user:
         index:

@@ -1,6 +1,15 @@
 class UserSubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_user_subject, only: :update
+  before_action :load_user_subject, only: [:update, :show]
+
+  def show
+    @tasks = @user_subject.subject.tasks
+    @user_id = @user_subject.user_id
+    @tasks.each do |task|
+      @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
+        user_id: @user_id
+    end
+  end
 
   def update
     if @user_subject.update_attributes user_subject_params
@@ -10,17 +19,16 @@ class UserSubjectsController < ApplicationController
       flash[:danger] = t "controller.common_flash.update_error",
         object_name: UserSubject.name
     end
-    redirect_to user_course_url @user_subject.user_course.id
+    redirect_to :back
   end
 
   private
   def user_subject_params
-    params.require(:user_subject).permit :user_id, :subject_id,
-      :user_course_id, :status
+    params.require(:user_subject).permit :user_id, :subject_id, :user_course_id,
+     :status, user_tasks_attributes: [:id, :user_id, :task_id]
   end
 
   def load_user_subject
-    @user_subject = UserSubject.find_by user_id: params[:user_id], subject_id:
-      params[:subject_id], user_course_id: params[:user_course_id]
+    @user_subject = UserSubject.find_by id: params[:id]
   end
 end
