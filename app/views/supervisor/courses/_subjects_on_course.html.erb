@@ -5,6 +5,7 @@
       <thead>
         <th><%= t "view.supervisor.subject.index.name" %></th>
         <th><%= t "view.supervisor.subject.index.duration" %></th>
+        <th><%= t "view.supervisor.subject.index.status" %></th>
         <th><%= t "view.supervisor.subject.index.action" %></th>
       </thead>
       <tbody>
@@ -12,6 +13,11 @@
           <tr>
             <td><%= link_to subject.name, [:supervisor, subject] %></td>
             <td><%= subject.duration %></td>
+            <td>
+              <span class="label label-<%= course_subject.status_label %>">
+                <%= course_subject.status_content %>
+              </span>
+            </td>
             <% if @course.in_process? %>
               <td class="chilrd-m-b-0">
                 <% if course_subject.in_process? %>
@@ -24,15 +30,7 @@
                     supervisor_course_course_subjects_path(@course, subject_id:
                     subject.id, course_subject: {status: :in_process}),
                     method: :patch, class: "btn btn-success" %>
-                <% else %>
-                  <p id="subject_of_course_closed">
-                    <%= t "view.supervisor.subject.index.subject_course_closed" %>
-                  </p>
                 <% end %>
-              </td>
-            <% else %>
-              <td class="right-align">
-                <%= t "view.supervisor.course_subject.show.course_should_be_start" %>
               </td>
             <% end %>
           </tr>

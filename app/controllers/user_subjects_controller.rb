@@ -1,6 +1,5 @@
 class UserSubjectsController < ApplicationController
   load_and_authorize_resource
-  before_action :load_user_subject, only: [:update, :show]
 
   def show
     @tasks = @user_subject.subject.tasks
@@ -26,9 +25,5 @@ class UserSubjectsController < ApplicationController
   def user_subject_params
     params.require(:user_subject).permit :user_id, :subject_id, :user_course_id,
      :status, user_tasks_attributes: [:id, :user_id, :task_id]
-  end
-
-  def load_user_subject
-    @user_subject = UserSubject.find_by id: params[:id]
   end
 end

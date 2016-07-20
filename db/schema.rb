@@ -94,6 +94,8 @@ ActiveRecord::Schema.define(version: 20160719101921) do
     t.datetime "updated_at",                 null: false
   end
 
+  add_index "user_subjects", ["user_id", "subject_id", "course_id"], name: "index_user_subjects_on_user_id_and_subject_id_and_course_id", unique: true
+
   create_table "user_tasks", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "task_id"
