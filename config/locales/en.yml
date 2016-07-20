@@ -179,6 +179,7 @@ en:
           started: "Course is started"
         update:
           started: "This course is started"
+          finished: "This course is finished"
           reject: |
             "Your course contains trainees who is already in other process.
             Please reject them to start"
