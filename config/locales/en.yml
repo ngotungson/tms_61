@@ -62,6 +62,9 @@ en:
         tasks_of_subject_uncompleted: "You are not complete tasks for this subject"
         finish: "Finish"
         user_subject_finished: "This subject was completed."
+        share_with_social: "You joining:"
+        at: " at webside: "
+        url: "http://framgiatrainingsystem.com"
     user_subject:
       show:
         update: "Update"

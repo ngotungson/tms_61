@@ -19,6 +19,7 @@ gem "mini_magick", "4.5.1"
 gem "fog", "1.38.0"
 
 gem "koala"
+gem "social-share-button"
 
 gem "omniauth"
 gem "omniauth-oauth2"
