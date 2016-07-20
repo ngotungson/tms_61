@@ -9,5 +9,6 @@ class CreateUserSubjects < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+    add_index :user_subjects, [:user_id, :subject_id, :course_id], unique: true
   end
 end

@@ -10,9 +10,11 @@ class Supervisor::CoursesController < ApplicationController
   end
 
   def show
-    @subjects =  Kaminari.paginate_array(@course.subjects.
-      map{|subject| [subject, CourseSubject.find_by(@course.id, subject.id)]}).
-      page params[:subject_page]
+    @subjects =  Kaminari.paginate_array(
+      @course.subjects.map do |subject|
+        [subject, CourseSubject.find_by(course_id: @course.id,
+          subject_id: subject.id)]
+      end).page params[:subject_page]
     @trainees = @trainees.page params[:trainee_page]
     @supervisors = @supervisors.page params[:supervisor_page]
     @current_tab = params[:current_tab]

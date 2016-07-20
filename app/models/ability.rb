@@ -14,7 +14,13 @@ class Ability
     else
       can :read, :all
       can :update, User, id: user.id
-      can :update, UserSubject
+      can :update, UserSubject, course: {status: Course.statuses[:in_process]}
+      cannot :update, UserSubject do |user_subject|
+        user_subject.course.not_started? || user_subject.course.closed?
+      end
+      cannot :create, UserTask do |user_task|
+        user_task.user_subject.not_started? || user_task.user_subject.closed?
+      end
     end
   end
 end

@@ -52,8 +52,8 @@ class Course < ActiveRecord::Base
   def create_user_subject
     self.users.trainee.each do |trainee|
       self.subjects.each do |subject|
-        UserSubject.first_or_create user_id: trainee.id,
-          course_id: id, subject_id: subject.id
+        UserSubject.where(user_id: trainee.id,
+          subject_id: subject.id, course_id: id).first_or_create
       end
     end
   end

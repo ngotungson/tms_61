@@ -221,6 +221,11 @@ en:
         new: "New"
         in_process: "In Process"
         closed: "Closed"
+    course_subject:
+      label:
+        new: "New"
+        in_process: "In Process"
+        closed: "Closed"
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."

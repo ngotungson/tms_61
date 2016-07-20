@@ -8,10 +8,10 @@
         <th><%= t "view.supervisor.subject.index.action" %></th>
       </thead>
       <tbody>
-        <% subjects.each do |subject, course_subject| %>
+        <% subjects.each do |subject, user_subject| %>
           <tr>
             <td><%= link_to subject.name,
-              user_course_user_subject_path(@user_course, subject) %></td>
+              user_course_user_subject_path(@user_course, user_subject) %></td>
             <td><%= subject.duration %></td>
           </tr>
         <% end %>
