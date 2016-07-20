@@ -13,6 +13,7 @@ class Ability
       end
     else
       can :read, :all
+      can :update, User, id: user.id
       can :update, UserSubject
     end
   end

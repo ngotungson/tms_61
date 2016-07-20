@@ -1,4 +1,5 @@
 user:
+  avatar_profile: "100x100"
   per_page: 5
   trainee_param: "trainee_page"
   supervisor_param: "supervisor_page"

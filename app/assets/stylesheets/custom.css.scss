@@ -15,7 +15,7 @@ body {
 }
 
 body {
-  padding-top: 60px;
+  padding-top: 80px;
   background-color: #f0f0f0;
   color: rgba(0,0,0,0.87);
 }
@@ -164,4 +164,15 @@ header {
 .icon_image_social {
   width: 30px;
   height: 30px;
+}
+
+.avatar-profile {
+  width: 40%;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.info-profile {
+  width: 59%;
+  display: inline-block;
 }

@@ -1,0 +1,29 @@
+<div class="card">
+  <h2><%= t "view.user.my_course" %></h2>
+  </br>
+  <div class="table-responsive">
+    <table id="mytable" class="table table-bordred table-striped">
+      <thead>
+        <th><%= t "view.user_courses.course.index.name" %></th>
+        <th><%= t "view.user_course.course.index.description" %></th>
+        <th><%= t "view.supervisor.course.index.duration" %></th>
+        <th><%= t "view.supervisor.course.index.status" %></th>
+      </thead>
+
+      <tbody>
+        <% @user_courses.each do |user_course| %>
+          <tr>
+            <td><%= link_to user_course.course.name, user_course %></td>
+            <td><%= user_course.course.description %></td>
+            <td><%= user_course.course.duration %></td>
+            <td>
+              <span class="label label-<%= user_course.course.status_label %>">
+                <%= user_course.course.status_content %></span>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%= paginate @user_courses %>
+</div>
