@@ -5,7 +5,8 @@ class Supervisor::CoursesController < ApplicationController
   before_action :load_subjects, only:[:new, :edit]
 
   def index
-    @courses = Course.page params[:page]
+    @search = Course.ransack params[:q]
+    @courses = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def show

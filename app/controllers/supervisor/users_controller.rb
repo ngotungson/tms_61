@@ -2,7 +2,8 @@ class Supervisor::UsersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @users = User.page params[:page]
+    @search = User.ransack params[:q]
+    @users = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def new

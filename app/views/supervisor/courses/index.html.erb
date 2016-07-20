@@ -7,10 +7,22 @@
         <%= link_to t("view.supervisor.course.index.add_new_course"),
           new_supervisor_course_path, class: "btn btn-primary" %>
         </br>
+        </br>
+        <div>
+          <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
+            <%= f.label :name_cont, t("view.search_user.label_name") %>
+            <%= f.text_field :name_cont, placeholder: t("view.search_subject.name"),
+              class: "form-control search_select" %>
+            <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
+          <% end %>
+        </div>
+        </br>
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
-            <th><%= t "view.supervisor.course.index.name" %></th>
-            <th><%= t "view.supervisor.course.index.description" %></th>
+            <th><%= sort_link @search, :name,
+              t("view.supervisor.course.index.name") %></th>
+            <th><%= sort_link @search, :description,
+              t("view.supervisor.course.index.description") %></th>
             <th><%= t "view.supervisor.course.index.duration" %></th>
             <th><%= t "view.supervisor.course.index.status" %></th>
             <th></th>

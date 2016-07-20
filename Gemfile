@@ -28,6 +28,7 @@ gem "omniauth-twitter"
 
 gem "cancancan", "~> 1.10"
 gem "public_activity"
+gem "ransack"
 
 group :development, :test do
   gem "sqlite3", "1.3.11"
