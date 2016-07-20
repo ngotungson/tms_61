@@ -2,7 +2,8 @@ class Supervisor::SubjectsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @subjects = Subject.page params[:page]
+    @search = Subject.ransack params[:q]
+    @subjects = @search.result.order(updated_at: :desc).page params[:page]
   end
 
   def show
