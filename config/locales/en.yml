@@ -224,3 +224,8 @@ en:
       user: "This user was into course. You can't delete it"
     update:
       project: "Not allowed to update this project."
+mail:
+  hello: "Hello, "
+  join_in_course: "You had assigned in course"
+  delete_from_course: "You had been delete in course "
+  thanks: "Thanks for joining and have a great day!"
