@@ -1,0 +1,9 @@
+<h1><%= t "mail.hello" %><%= @user.name %></h1>
+<p>
+  <%= t "mail.course" %><%= @course.name %><%= t "mail.is" %>
+  <span class="label label-<%= @course.status_label %>">
+    <%= @course.status_content %>
+  </span>
+  <%= t "mail.but_prepare_finished" %>
+</p>
+<p><%= t "mail.thanks" %></p>

@@ -5,7 +5,7 @@ class Supervisor::UserCoursesController < ApplicationController
     if @course.not_started?
       @trainees = User.trainee
     else
-      @trainees = User.trainee.not_in_course_process
+      @trainees = User.trainee.not_in_course_process @course.id
     end
     @supervisors = User.supervisor
     @course_users = @course.users

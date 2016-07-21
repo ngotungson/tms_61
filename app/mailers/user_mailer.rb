@@ -12,4 +12,10 @@ class UserMailer < ApplicationMailer
     @course = course
     mail to: @user.email, subject: @course.name
   end
+
+  def finish_course user, course
+    @user = user
+    @course = course
+    mail to: @user.email, subject: @course.name
+  end
 end
