@@ -32,6 +32,8 @@
       <%= t "view.supervisor.course.show.trainees" %></a></li>
     <li><a data-toggle="tab" href="#supervisors">
       <%= t "view.supervisor.course.show.supervisors" %></a></li>
+    <li><a data-toggle="tab" href="#all-activities">
+      <%= t "view.supervisor.course.show.all_activities" %></a></li>
   </ul>
   <div class="tab-content">
     <div id="subjects" class="tab-pane fade in active">
@@ -42,6 +44,9 @@
     </div>
     <div id="supervisors" class="tab-pane fade">
       <%= render partial: "supervisors_on_course", locals: {supervisors: @supervisors} %>
+    </div>
+    <div id="all-activities" class="tab-pane fade">
+      <%= render partial: "all_activities_on_course", locals: {activities: @activities} %>
     </div>
   </div>
 </div>

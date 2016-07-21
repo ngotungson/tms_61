@@ -107,9 +107,11 @@ en:
           subjects: Subjects
           trainees: Trainees
           supervisors: Supervisors
+          all_activities: "All Activities"
           user_on_course: "Users on course"
           subjects_on_course: "Subjects on course"
           trainees_on_course: "Trainees on course"
+          all_activities_on_course: "All Activities"
           add_user_to_course: "Add Users"
           supervisors_on_course: "Supervisors on course"
           description: "Description:"
@@ -168,6 +170,19 @@ en:
           course_should_be_start: "Active this course before start subject."
           finish: "Finish"
           user_subject_finished: "This subject was completed."
+    public_activity:
+      removed: "which has since been removed"
+      time_ago: "ago"
+      course:
+        create: "created course"
+        update: "updated course"
+        start: "started course"
+        finish: "finished course"
+      course_subject:
+        start: "started subject"
+        finish: "finished subject"
+      user_task:
+        create: "completed task"
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"

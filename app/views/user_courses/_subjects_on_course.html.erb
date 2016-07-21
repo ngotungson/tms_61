@@ -5,14 +5,19 @@
       <thead>
         <th><%= t "view.supervisor.subject.index.name" %></th>
         <th><%= t "view.supervisor.subject.index.duration" %></th>
-        <th><%= t "view.supervisor.subject.index.action" %></th>
+        <th><%= t "view.supervisor.subject.index.status" %></th>
       </thead>
       <tbody>
-        <% subjects.each do |subject, user_subject| %>
+        <% subjects.each do |subject, user_subject, course_subject| %>
           <tr>
             <td><%= link_to subject.name,
               user_course_user_subject_path(@user_course, user_subject) %></td>
             <td><%= subject.duration %></td>
+            <td>
+              <span class="label label-<%= course_subject.status_label %>">
+                <%= course_subject.status_content %>
+              </span>
+            </td>
           </tr>
         <% end %>
       </tbody>

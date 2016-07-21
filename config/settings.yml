@@ -14,13 +14,20 @@ course:
 subject:
   per_page: 5
   subject_param: "subject_page"
+activity:
+  activity_param: "activity_page"
 course_subject:
+  status:
+    in_process: "in_process"
+    closed: "closed"
   status_label:
     not_started: "info"
     in_process: "success"
     closed: "danger"
   subject_course_param: "subject_course_page"
   task_subject_param: "task_subject_page"
+public_activity:
+  avatar_owner: "30x30"
 task:
   per_page: 5
 
