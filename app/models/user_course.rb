@@ -5,7 +5,7 @@ class UserCourse < ActiveRecord::Base
 
   paginates_per Settings.course.per_page
 
-  after_create :send_email_assign
+  after_create :send_email_assign, :send_email_before_end_course
   before_destroy :send_email_remove
 
   private
@@ -17,5 +17,10 @@ class UserCourse < ActiveRecord::Base
   def send_email_remove
     TraineeWorker.perform_async TraineeWorker::REMOVE_TRAINEE,
       self.user_id, self.course_id
+  end
+
+  def send_email_before_end_course
+    TraineeWorker.perform_at (self.course.end_date - 1.day),
+      TraineeWorker::NOTIFY_FINISH, self.user_id, self.course_id
   end
 end

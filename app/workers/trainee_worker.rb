@@ -3,6 +3,7 @@ class TraineeWorker
 
   ASSIGN_TRAINEE = Settings.assign_trainee
   REMOVE_TRAINEE = Settings.remove_trainee
+  NOTIFY_FINISH = Settings.notify_finish
 
   def perform action, trainee_id, course_id
     case action
@@ -10,6 +11,8 @@ class TraineeWorker
       send_email_when_trainee_assigned trainee_id, course_id
     when REMOVE_TRAINEE
       send_email_when_trainee_removed trainee_id, course_id
+    when NOTIFY_FINISH
+      send_email_when_end_course trainee_id, course_id
     end
   end
 
@@ -24,5 +27,11 @@ class TraineeWorker
     trainee = User.find_by id: trainee_id
     course = Course.find_by id: course_id
     UserMailer.remove_from_course(trainee, course).deliver_now
+  end
+
+  def send_email_when_end_course trainee_id, course_id
+    trainee = User.find_by id: trainee_id
+    course = Course.find_by id: course_id
+    UserMailer.finish_course(trainee, course).deliver
   end
 end
