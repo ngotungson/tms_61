@@ -8,6 +8,8 @@ class UserSubjectsController < ApplicationController
       @user_subject.user_tasks.find_or_initialize_by task_id: task.id,
         user_id: @user_id
     end
+    @activities = @user_subject.all_activities
+      .page params[:activity_page]
   end
 
   def update

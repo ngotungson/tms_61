@@ -155,7 +155,9 @@ header {
 }
 
 .user-subject-task {
-  margin-right: 10px;
+  display: inline-block;
+  margin: 0.6em;
+  width: 30%;
 }
 
 .subject-name {
@@ -191,4 +193,12 @@ header {
 
 .margin_left_btn_submit {
   margin-left: 20px;
+}
+
+.activity-message {
+  font-size: 0.9em;
+}
+
+.time-ago {
+  font-size: 0.7em;
 }

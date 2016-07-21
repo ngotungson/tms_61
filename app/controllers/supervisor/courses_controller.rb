@@ -76,6 +76,7 @@ class Supervisor::CoursesController < ApplicationController
 
   def update_info
     if @course.update_attributes course_params
+      @course.create_activity :update_info, owner: current_user
       flash.now[:success] = t "controller.common_flash.update_success",
         object_name: Course.name
       redirect_to supervisor_courses_url
@@ -88,6 +89,7 @@ class Supervisor::CoursesController < ApplicationController
     if params[:status] == Course.statuses[:in_process].to_s
       if @trainees.in_course_process.blank?
         @course.update_attributes status: Course.statuses[:in_process]
+        @course.create_activity :start, owner: current_user
         flash[:success] = t "controller.supervisor.course.update.started"
       else
         flash[:danger] = t "controller.supervisor.course.update.reject"
@@ -95,6 +97,7 @@ class Supervisor::CoursesController < ApplicationController
 
     elsif params[:status] == Course.statuses[:closed].to_s
       @course.update_attributes status: Course.statuses[:closed]
+      @course.create_activity :finish, owner: current_user
       flash[:success] = t "controller.supervisor.course.update.finished"
     end
 

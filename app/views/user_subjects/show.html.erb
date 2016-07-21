@@ -1,36 +1,59 @@
-<div class="subject-name"><h1><%= @user_subject.subject.name %></h1></div>
-
-<div class="row">
-  <%= form_for @user_subject, url: user_course_user_subject_path, method: :put do |f| %>
-    <%= f.hidden_field :id %>
-    <%= f.fields_for :user_tasks do |builder| %>
-      <div class="col-md-2 panel panel-primary panel-body user-subject-task">
-        <% if builder.object.new_record? %>
-          <%= builder.hidden_field :user_id %>
-          <%= builder.check_box :task_id, {checked: false},
-            builder.object.task.id, nil %>
-          <h4><%= builder.object.task.name %></h4>
-        <% else %>
-          <%= builder.hidden_field :user_id %>
-          <%= builder.check_box :task_id, {checked: true, disabled: true} %>
-          <h4><%= builder.object.task.name %></h4>
-        <% end %>
-      </div>
-    <% end %>
-
-    <div class="col-md-12">
-      <div class="text-center col-md-12">
-        <% if @user_subject.finished? %>
-          <%= link_to t("view.user_subject.show.finish"), "#", class: "btn btn-success" %>
-        <% else %>
-          <%= f.submit t("view.user_subject.show.update"), class: "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
+<div class="col-md-4">
+  <div class="card">
+    <center>
+      <h3 class="course-name">
+        <%= @user_subject.subject.name %>
+      </h3>
+    </center>
+    <span>
+      <strong><%= t "view.supervisor.subject.index.duration" %></strong>
+      <%= @user_subject.subject.duration %>
+    </span>
+  </div>
+  </br>
+  <div class="card">
+    <h3><%= t "view.supervisor.course.show.all_activities_on_course" %></h3>
+    <ul class="list-group">
+      <% @activities.each do |activity| %>
+        <li class="list-group-item">
+          <%= render_activity activity %>
+        </li>
+      <% end %>
+    </ul>
+  <%= paginate @activities, param_name: Settings.activity.activity_param %>
+  </div>
 </div>
 
-<div class="user-subject-description">
-  <h3><%= t "view.supervisor.subject.index.description" %></h3>
-  <h4><%= @user_subject.subject.description %></h4>
+<div class="col-md-8">
+  <div class="card">
+    <%= form_for @user_subject, url: user_course_user_subject_path, method: :put do |f| %>
+      <%= f.hidden_field :id %>
+      <%= f.fields_for :user_tasks do |builder| %>
+        <div class="panel panel-primary panel-body user-subject-task">
+          <% if builder.object.new_record? %>
+            <%= builder.hidden_field :user_id %>
+            <%= builder.check_box :task_id, {checked: false},
+              builder.object.task.id, nil %>
+            <h4><%= builder.object.task.name %></h4>
+          <% else %>
+            <%= builder.hidden_field :user_id %>
+            <%= builder.check_box :task_id, {checked: true, disabled: true} %>
+            <h4><%= builder.object.task.name %></h4>
+          <% end %>
+        </div>
+      <% end %>
+
+        <div class="text-center">
+          <% if @user_subject.finished? %>
+          <h3>
+            <span class="label label-success">
+              <%= t("view.user_subject.show.finish") %>
+            </span>
+          </h3>
+          <% else %>
+            <%= f.submit t("view.user_subject.show.update"), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+    <% end %>
+  </div>
 </div>

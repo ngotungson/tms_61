@@ -6,6 +6,13 @@ class Supervisor::CourseSubjectsController < ApplicationController
     if @course_subject.update_attributes course_subject_params
       flash[:success] = t "controller.common_flash.update_success",
         object_name: CourseSubject.name
+      if params[:course_subject][:status].present?
+        if params[:course_subject][:status] == Settings.course_subject.status.in_process
+          @course_subject.create_activity :start, owner: current_user
+        elsif params[:course_subject][:status] == Settings.course_subject.status.closed
+          @course_subject.create_activity :finish, owner: current_user
+        end
+      end
     else
       flash[:danger] = t "controller.common_flash.update_error",
         object_name: CourseSubject.name

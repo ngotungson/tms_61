@@ -1,5 +1,6 @@
 class UserTask < ActiveRecord::Base
   include ActivityLog
+  tracked only: :create, owner: Proc.new{|controller| controller.current_user}
 
   belongs_to :user
   belongs_to :task

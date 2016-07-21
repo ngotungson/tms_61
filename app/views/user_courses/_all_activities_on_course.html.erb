@@ -1,0 +1,12 @@
+<div class="card">
+  <h3><%= t "view.supervisor.course.show.all_activities_on_course" %></h3>
+  <ul class="list-group">
+    <% activities.each do |activity| %>
+      <li class="list-group-item">
+        <%= render_activity activity, layout: :activity %>
+      </li>
+    <% end %>
+  </ul>
+<%= paginate activities, param_name: Settings.activity.activity_param,
+  params: {current_tab: "all-activity"} %>
+</div>

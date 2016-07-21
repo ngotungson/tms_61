@@ -1,5 +1,6 @@
 class Course < ActiveRecord::Base
   include ActivityLog
+  tracked only: :create, owner: Proc.new{|controller| controller.current_user}
 
   enum status: [:not_started, :in_process, :closed]
 
@@ -19,6 +20,11 @@ class Course < ActiveRecord::Base
 
   before_create :set_not_started_status
   after_update :create_user_subject, if: -> {self.in_process?}
+
+  def all_activities
+    PublicActivity::Activity.where(trackable_id: id,
+      trackable_type: Course.name).order("created_at desc")
+  end
 
   def duration
     "#{start_date.to_formatted_s :short} : #{end_date.to_formatted_s :short}"
