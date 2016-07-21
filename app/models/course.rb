@@ -20,6 +20,7 @@ class Course < ActiveRecord::Base
 
   before_create :set_not_started_status
   after_update :create_user_subject, if: -> {self.in_process?}
+  after_update :finish_subjects, if: -> {self.closed?}
 
   def all_activities
     PublicActivity::Activity.where(trackable_id: id,
@@ -61,6 +62,12 @@ class Course < ActiveRecord::Base
         UserSubject.where(user_id: trainee.id,
           subject_id: subject.id, course_id: id).first_or_create
       end
+    end
+  end
+
+  def finish_subjects
+    course_subjects.each do |course_subject|
+      course_subject.update_attributes status: UserSubject.statuses[:finished]
     end
   end
 

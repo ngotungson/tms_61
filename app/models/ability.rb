@@ -14,6 +14,9 @@ class Ability
     else
       can :read, :all
       can :update, User, id: user.id
+      can :read, UserCourse, user_id: user.id
+      can [:update, :read], User, id: user.id
+      can :read, UserSubject, user_id: user.id
       can :update, UserSubject, course: {status: Course.statuses[:in_process]}
       cannot :update, UserSubject do |user_subject|
         user_subject.course.not_started? || user_subject.course.closed?

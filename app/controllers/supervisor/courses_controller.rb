@@ -2,7 +2,7 @@ class Supervisor::CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :load_supervisor, only: [:show]
   before_action :load_trainees, only: [:show, :update]
-  before_action :load_subjects, only:[:new, :edit]
+  before_action :load_subjects, except: [:index, :destroy, :show]
 
   def index
     @search = Course.ransack params[:q]
@@ -89,6 +89,7 @@ class Supervisor::CoursesController < ApplicationController
     if params[:status] == Course.statuses[:in_process].to_s
       if @trainees.in_course_process.blank?
         @course.update_attributes status: Course.statuses[:in_process]
+        @course.update_attributes start_date: DateTime.now
         @course.create_activity :start, owner: current_user
         flash[:success] = t "controller.supervisor.course.update.started"
       else
@@ -97,6 +98,7 @@ class Supervisor::CoursesController < ApplicationController
 
     elsif params[:status] == Course.statuses[:closed].to_s
       @course.update_attributes status: Course.statuses[:closed]
+      @course.update_attributes end_date: DateTime.now
       @course.create_activity :finish, owner: current_user
       flash[:success] = t "controller.supervisor.course.update.finished"
     end

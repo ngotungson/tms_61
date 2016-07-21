@@ -10,7 +10,7 @@
       <tbody>
         <% trainees.each do |trainee| %>
             <tr>
-              <td><%= link_to trainee.name, "#" %></td>
+              <td><%= link_to trainee.name, trainee %></td>
               <td><%= trainee.email %></td>
               <% if trainee.in_process? %>
                 <td><span class="label label-success"> <%= t ".in_process" %> </span></td>

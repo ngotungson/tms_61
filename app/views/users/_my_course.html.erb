@@ -13,7 +13,11 @@
       <tbody>
         <% @user_courses.each do |user_course| %>
           <tr>
-            <td><%= link_to user_course.course.name, user_course %></td>
+            <% if current_user == user_course.user %>
+              <td><%= link_to user_course.course.name, user_course %></td>
+            <% else %>
+              <td><%= user_course.course.name %></td>
+            <% end %>
             <td><%= user_course.course.description %></td>
             <td><%= user_course.course.duration %></td>
             <td>
