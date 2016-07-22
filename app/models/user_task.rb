@@ -7,6 +7,10 @@ class UserTask < ActiveRecord::Base
   belongs_to :user_subject
   after_create :finish_subject, if: :all_tasks_was_finished?
 
+  scope :in_this_month, -> do
+    where("cast(strftime('%m', created_at) as int) = #{Time.now.month}")
+  end
+
   private
   def all_tasks_was_finished?
     user_subject.user_tasks.count == user_subject.subject.tasks.count

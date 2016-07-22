@@ -18,4 +18,10 @@ class UserMailer < ApplicationMailer
     @course = course
     mail to: @user.email, subject: @course.name
   end
+
+  def monthly_report_to_supervisor supervisor, courses
+    @supervisor = supervisor
+    @courses = courses
+    mail to: supervisor.email, subject: t("mail.subject_monthly_report")
+  end
 end

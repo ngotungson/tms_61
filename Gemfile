@@ -20,6 +20,7 @@ gem "fog", "1.38.0"
 
 gem "koala"
 gem "social-share-button"
+gem "whenever", require: false
 
 gem "omniauth"
 gem "omniauth-oauth2"

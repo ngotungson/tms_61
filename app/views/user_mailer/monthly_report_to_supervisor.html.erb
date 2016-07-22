@@ -1,0 +1,23 @@
+<div class="col-md-12">
+  <h1><%= t "mail.hello" %><%= @supervisor.name %></h1>
+  <h2>
+    <%= t "mail.count_course_in_month", month: Time.now.month, year: Time.now.year %>
+  </h2>
+  <span><%= @courses.count %></span>
+  <% @courses.each do |course| %>
+    <h3><%= course.name %></h3>
+    <% course.user_subjects.each do |user_subject| %>
+      <h2>
+        <%= t "mail.subject_name", subject_name: user_subject.subject.name %>
+      </h2>
+      <h3>
+        <%= t "mail.user_subject_user_name", user_name: user_subject.user.name %>
+      </h3>
+      <span>
+        <%= t "mail.complete_task",
+          count_task: "#{user_subject.user_tasks.in_this_month.size}" %>
+      </span>
+    <% end %>
+  <% end %>
+  <p><%= t "mail.thanks" %></p>
+</div>

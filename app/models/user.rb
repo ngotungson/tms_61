@@ -40,6 +40,8 @@ class User < ActiveRecord::Base
       WHERE courses.status = #{Course.statuses[:in_process]})")
   end
 
+  scope :user_is_supervisor, ->{where role: User.roles[:supervisor]}
+
   class << self
     def role_titles
       User.roles.keys
@@ -66,6 +68,7 @@ class User < ActiveRecord::Base
           user = User.new
           user.password = Devise.friendly_token[0,10]
           user.name = auth.info.name
+          user.role = User.roles[:trainee]
           user.email = auth.info.email
           if auth.provider == "twitter"
             user.save(validate: false)
@@ -77,7 +80,15 @@ class User < ActiveRecord::Base
         authorization.save
       end
       authorization.user
-   end
+    end
+
+    def monthly_report
+      @supervisor = User.user_is_supervisor
+      @courses = Course.in_this_month
+      @supervisor.each do |supervisor|
+        UserMailer.monthly_report_to_supervisor(supervisor, @courses).deliver
+      end
+    end
   end
 
   def in_process?

@@ -64,7 +64,6 @@ en:
         user_subject_finished: "This subject was completed."
         share_with_social: "You joining:"
         at: " at webside: "
-        url: "http://framgiatrainingsystem.com"
     user_subject:
       show:
         update: "Update"
@@ -257,3 +256,8 @@ en:
     is: " is"
     course: "Course "
     but_prepare_finished: "but prepare_finished"
+    subject_monthly_report: "Monthly report of course"
+    count_course_in_month: "Trong thang %{month} / %{year} co: "
+    user_subject_user_name: "User: %{user_name}"
+    complete_task: "completed: %{count_task} "
+    subject_name: "Subject: %{subject_name} "
