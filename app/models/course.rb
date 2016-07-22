@@ -7,6 +7,7 @@ class Course < ActiveRecord::Base
   has_many :user_courses, dependent: :destroy
   has_many :users, through: :user_courses, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
+  has_many :user_subjects, dependent: :destroy
   has_many :subjects, through: :course_subjects, dependent: :destroy
 
   paginates_per Settings.course.per_page
@@ -24,6 +25,12 @@ class Course < ActiveRecord::Base
   def all_activities
     PublicActivity::Activity.where(trackable_id: id,
       trackable_type: Course.name).order("created_at desc")
+  end
+
+  scope :in_this_month, -> do
+    where("(cast(strftime('%m', start_date) as int) <= #{Time.now.month}
+      AND cast(strftime('%m', end_date) as int) >= #{Time.now.month})")
+      .where.not(status: Course.statuses[:not_started])
   end
 
   def duration
