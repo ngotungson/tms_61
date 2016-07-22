@@ -9,7 +9,7 @@ class UserCoursesController < ApplicationController
   def show
     @subjects = Kaminari.paginate_array(
       @course.subjects.map do |subject|
-        [subject, UserSubject.find_by(user_id: current_user.id,
+        [subject, UserSubject.find_by(user_id: @user_course.user.id,
           subject_id: subject.id, course_id: @course.id),
           CourseSubject.find_by(course_id: @course.id, subject_id: subject.id)]
       end).page params[:subject_page]

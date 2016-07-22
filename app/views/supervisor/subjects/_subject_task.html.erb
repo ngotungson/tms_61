@@ -1,12 +1,13 @@
-<table id="mytable" class="table table-bordred table-striped">
-  <thead>
-    <th><%= t "view.supervisor.subject.show.name" %></th>
-    <th><%= t "view.supervisor.subject.show.description" %></th>
-  </thead>
-  <tbody>
-    <%= render(partial: "task", collection: @tasks, as: :task) || t("view.supervisor
-      .subject.show.no_task_display") %>
-  </tbody>
-</table>
+<div class="card">
+  <table id="mytable" class="table table-bordred table-striped">
+    <thead>
+      <th><%= t "view.supervisor.subject.show.name" %></th>
+    </thead>
+    <tbody>
+      <%= render(partial: "task", collection: @tasks, as: :task) || t("view.supervisor
+        .subject.show.no_task_display") %>
+    </tbody>
+  </table>
+</div>
 
 <%= paginate @tasks %>

@@ -1,26 +1,24 @@
 <div class="container card">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-8">
       <h2><%= t "view.supervisor.user.index.list_all_user" %></h2>
-      </br>
+    </div>
+    <div class="col-md-4">
+      <div>
+        <br>
+        <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
+          <%= f.text_field :name_cont, placeholder: t("view.search_user.name"),
+            class: "form-control search_select" %>
+          <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-md-12">
       <div class="table-responsive">
         <%= link_to t("view.supervisor.user.index.add_new_user"),
           new_supervisor_user_path, class: "btn btn-primary" %>
-        </br>
-        </br>
-        <div>
-          <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
-            <%= f.label :name_cont, t("view.search_user.label_name") %>
-            <%= f.text_field :name_cont, placeholder: t("view.search_user.name"),
-              class: "form-control search_select" %>
-            <%= f.label :role_eq, t("view.search_user.label_select_role"),
-              class: "width_label_search" %>
-            <%= f.select :role_eq, ["supervisor", "trainee"], {include_blank: true},
-              class: "search_select" %>
-            <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
-          <% end %>
-        </div>
-        </br>
+
+
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
             <th><%= sort_link @search, :name, t("view.supervisor.user.index.name") %></th>
@@ -36,7 +34,7 @@
           </tbody>
         </table>
       </div>
+      <%= paginate @users %>
     </div>
   </div>
-  <%= paginate @users %>
 </div>

@@ -9,7 +9,7 @@
       <tbody>
         <% supervisors.each do |supervisor| %>
           <tr>
-            <td><%= link_to supervisor.name, "#" %></td>
+            <td><%= link_to supervisor.name, supervisor %></td>
             <td><%= supervisor.email %></td>
           </tr>
         <% end %>

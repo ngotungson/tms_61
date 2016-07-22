@@ -10,8 +10,12 @@
       <tbody>
         <% subjects.each do |subject, user_subject, course_subject| %>
           <tr>
-            <td><%= link_to subject.name,
-              user_course_user_subject_path(@user_course, user_subject) %></td>
+            <% if current_user == @user_course.user %>
+              <td><%= link_to subject.name,
+                user_course_user_subject_path(@user_course, user_subject) %></td>
+            <% else %>
+              <td><%= subject.name %></td>
+            <% end %>
             <td><%= subject.duration %></td>
             <td>
               <span class="label label-<%= course_subject.status_label %>">

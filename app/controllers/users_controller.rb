@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   load_and_authorize_resource
 
   def show
-    @user_courses = current_user.user_courses.page params[:page]
+    @user_courses = @user.user_courses.page params[:page]
   end
 
   def edit
