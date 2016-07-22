@@ -183,6 +183,7 @@ en:
         finish: "finished subject"
       user_task:
         create: "completed task"
+        of: "of subject"
   controller:
     common_flash:
       create_success: "%{object_name} is created successfully"
@@ -247,11 +248,12 @@ en:
       user: "This user was into course. You can't delete it"
     update:
       project: "Not allowed to update this project."
+      user_subject: "This course is closed or not started. You can not update"
   mail:
     hello: "Hello, "
-    join_in_course: "You had assigned in course"
+    join_in_course: "You had assigned in course "
     delete_from_course: "You had been delete in course "
     thanks: "Thanks for joining and have a great day!"
-    is: "is"
-    course: "course"
+    is: " is"
+    course: "Course "
     but_prepare_finished: "but prepare_finished"

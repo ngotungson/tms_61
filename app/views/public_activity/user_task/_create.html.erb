@@ -1,15 +1,19 @@
-<span class="activity-message">
-  <%= t "view.public_activity.user_task.create" %>
-</span>
+<div class="activity-task">
+  <span class="activity-message">
+    <%= t "view.public_activity.user_task.create" %>
+  </span>
 
-<span>
-  <% if activity.trackable %>
-    <%= link_to activity.trackable.task.name %>
-  <% else %>
-    <%= t "view.public_activiy.removed" %>
-  <% end %>
-</span>
-<span class="time-ago pull-right">
-  <%= time_ago_in_words activity.created_at %>
-  <%= t "view.public_activity.time_ago" %>
-</span>
+  <span>
+    <% if activity.trackable %>
+      <%= activity.trackable.task.name %>
+      <%= t "view.public_activity.user_task.of" %>
+      <%= activity.trackable.task.subject.name %>
+    <% else %>
+      <%= t "view.public_activiy.removed" %>
+    <% end %>
+  </span>
+  <span class="time-ago pull-right">
+    <%= time_ago_in_words activity.created_at %>
+    <%= t "view.public_activity.time_ago" %>
+  </span>
+</div>
