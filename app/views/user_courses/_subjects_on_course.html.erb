@@ -11,8 +11,12 @@
         <% subjects.each do |subject, user_subject, course_subject| %>
           <tr>
             <% if current_user == @user_course.user %>
-              <td><%= link_to subject.name,
-                user_course_user_subject_path(@user_course, user_subject) %></td>
+              <% if user_subject.present? %>
+                <td><%= link_to subject.name,
+                  user_course_user_subject_path(@user_course, user_subject) %></td>
+              <% else %>
+                <td><%= link_to subject.name, supervisor_subject_path(subject) %></td>
+              <% end %>
             <% else %>
               <td><%= subject.name %></td>
             <% end %>
