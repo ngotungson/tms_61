@@ -10,7 +10,7 @@
       <tbody>
         <% subjects.each do |subject, user_subject, course_subject| %>
           <tr>
-            <% if current_user == @user_course.user %>
+            <% if current_user == @user_course.user || current_user.supervisor? %>
               <% if user_subject.present? %>
                 <td><%= link_to subject.name,
                   user_course_user_subject_path(@user_course, user_subject) %></td>

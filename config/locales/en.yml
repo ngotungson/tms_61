@@ -1,3 +1,4 @@
+
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
 # than English, add the necessary files in this directory.
@@ -35,6 +36,10 @@ en:
       profile: "Profile"
       account_setting: "Setting"
       logout: "Logout"
+      courses: "Courses"
+      subjects: "Subjects"
+      users: "Users"
+      my_courses: "My Courses"
     shared:
       error:
         message: "The form contains"
@@ -68,6 +73,7 @@ en:
       show:
         update: "Update"
         finish: "Finish"
+        course: "Course: "
     supervisor:
       user:
         index:
@@ -149,6 +155,7 @@ en:
           description: "Description"
           no_task_display: "There are no tasks displayed!"
           tasks: "Tasks of subject"
+          duration: "Duration (days): "
         new:
           title: "Subject"
         edit:
@@ -192,7 +199,7 @@ en:
       delete_success: "%{object_name} is deleted successfully"
       delete_error: "%{object_name} is not deleted"
     session:
-      success_signin: "Wellcome back"
+      success_signin: "Welcome back"
       error_signin: "Wrong email or password"
       pleaseloginassupervisor: "Please login as supervisor"
       success_signout: "Logout successfully"
@@ -232,6 +239,8 @@ en:
       must_be_after_or_equal_end_date: "must be after or equal start date"
       not_in_past: "not in past"
       at_least_a_subject: "Course must be at least a subject"
+      duration: "- start_date must be greater or equal sum of subject durations"
+      year_too_big: "or end_date too far away from the current"
       label:
         new: "New"
         in_process: "In Process"
@@ -247,7 +256,7 @@ en:
       user: "This user was into course. You can't delete it"
     update:
       project: "Not allowed to update this project."
-      user_subject: "This course is closed or not started. You can not update"
+      user_subject: "This course is closed or this subject is not started. You can not update"
   mail:
     hello: "Hello, "
     join_in_course: "You had assigned in course "

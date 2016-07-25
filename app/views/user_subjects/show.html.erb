@@ -6,6 +6,11 @@
       </h3>
     </center>
     <span>
+      <strong><%= t "view.user_subject.show.course" %></strong>
+      <%= link_to @user_subject.user_course.course.name,
+        user_course_path(@user_subject.user_course) %>
+    </span></br>
+    <span>
       <strong><%= t "view.supervisor.subject.index.duration" %></strong>
       <%= @user_subject.subject.duration %>
     </span>
@@ -51,7 +56,8 @@
             </span>
           </h3>
           <% else %>
-            <%= f.submit t("view.user_subject.show.update"), class: "btn btn-primary" %>
+            <%= f.submit t("view.user_subject.show.update"),
+              class: "btn btn-primary" if @user_subject.user == current_user %>
           <% end %>
         </div>
     <% end %>

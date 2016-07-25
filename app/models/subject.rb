@@ -10,7 +10,8 @@ class Subject < ActiveRecord::Base
 
   validates :name, presence: true, length: {minimum: 6, maximum: 90}
   validates :description, presence: true, length: {minimum: 9}
-  validates :duration, presence:true, numericality: {only_integer: true}
+  validates :duration, presence:true, numericality: {only_integer: true,
+    greater_than: 0, less_than_or_equal_to: 30}
   validates_associated :tasks
   validate :check_tasks
 

@@ -17,8 +17,6 @@
       <div class="table-responsive">
         <%= link_to t("view.supervisor.user.index.add_new_user"),
           new_supervisor_user_path, class: "btn btn-primary" %>
-
-
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
             <th><%= sort_link @search, :name, t("view.supervisor.user.index.name") %></th>

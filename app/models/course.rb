@@ -86,5 +86,15 @@ class Course < ActiveRecord::Base
     if self.start_date < Date.today
       self.errors.add :start_date, I18n.t("model.course.not_in_past")
     end
+    duration = 0;
+    self.subjects.each do |subject|
+      duration += subject.duration
+    end
+    if duration > (self.end_date.to_date - self.start_date.to_date).to_i
+      self.errors.add :end_date, I18n.t("model.course.duration")
+    end
+    if self.start_date.year > 3000 || end_date.year > 3000
+      self.errors.add :start_date, I18n.t("model.course.year_too_big")
+    end
   end
 end
