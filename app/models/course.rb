@@ -23,9 +23,13 @@ class Course < ActiveRecord::Base
   after_update :create_user_subject, if: -> {self.in_process?}
   after_update :finish_subjects, if: -> {self.closed?}
 
+  COURSE_ACTIVITY = "(trackable_id = :course_id and trackable_type = 'Course')
+    OR (trackable_type = 'CourseSubject' and trackable_id in
+    (select distinct course_subjects.id from course_subjects
+    where course_subjects.course_id = :course_id))"
+
   def all_activities
-    PublicActivity::Activity.where(trackable_id: id,
-      trackable_type: Course.name).order("created_at desc")
+    PublicActivity::Activity.where(COURSE_ACTIVITY, course_id: id)
   end
 
   scope :in_this_month, -> do

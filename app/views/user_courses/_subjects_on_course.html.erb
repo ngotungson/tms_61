@@ -6,6 +6,9 @@
         <th><%= t "view.supervisor.subject.index.name" %></th>
         <th><%= t "view.supervisor.subject.index.duration" %></th>
         <th><%= t "view.supervisor.subject.index.status" %></th>
+        <% if current_user.trainee? %>
+          <th><%= t "view.supervisor.subject.index.your_status" %></th>
+        <% end %>
       </thead>
       <tbody>
         <% subjects.each do |subject, user_subject, course_subject| %>
@@ -25,6 +28,14 @@
               <span class="label label-<%= course_subject.status_label %>">
                 <%= course_subject.status_content %>
               </span>
+            </td>
+            <td>
+              <% if user_subject.present? && current_user.trainee? %>
+
+                  <span class="label label-<%= user_subject.status_label %>">
+                    <%= user_subject.status_content %>
+                  </span>
+              <% end %>
             </td>
           </tr>
         <% end %>

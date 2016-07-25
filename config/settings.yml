@@ -26,6 +26,11 @@ course_subject:
     closed: "danger"
   subject_course_param: "subject_course_page"
   task_subject_param: "task_subject_page"
+user_subject:
+  status_label:
+    not_started: "info"
+    in_process: "info"
+    finished: "success"
 public_activity:
   avatar_owner: "30x30"
 task:

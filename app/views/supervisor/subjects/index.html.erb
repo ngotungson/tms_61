@@ -1,18 +1,20 @@
 <div class="container card">
-  <div class="row">
-  <div class="col-md-8">
-    <h2><%= t "view.supervisor.subject.index.list_all_subject" %></h2>
-  </div>
-  <div class="col-md-4">
-    <br>
-    <div>
-      <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
-        <%= f.text_field :name_cont, placeholder: t("view.search_subject.name"),
-          class: "form-control search_select" %>
-        <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
-      <% end %>
+  <div class="row min-height">
+    <div class="row subject-index-header">
+      <div class="col-md-8">
+        <h2><%= t "view.supervisor.subject.index.list_all_subject" %></h2>
+      </div>
+      <div class="col-md-4">
+        <br>
+        <div>
+          <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
+            <%= f.text_field :name_cont, placeholder: t("view.search_subject.name"),
+              class: "form-control search_select" %>
+            <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
     <div class="col-md-12">
       <div class="table-responsive">
         <%= link_to t("view.supervisor.subject.index.add_new_subject"),

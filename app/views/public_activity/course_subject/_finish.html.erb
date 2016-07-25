@@ -1,0 +1,11 @@
+<span class="activity-message">
+  <%= t "view.public_activity.course_subject.finish" %>
+</span>
+
+<span>
+  <% if activity.trackable %>
+    <%= link_to activity.trackable.subject.name %>
+  <% else %>
+    <%= t ".view.public_activiy.removed" %>
+  <% end %>
+</span>
