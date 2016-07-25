@@ -5,7 +5,6 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable, :omniauthable,
     omniauth_providers: [:facebook, :twitter, :google_oauth2]
 
-  has_many :activities, dependent: :destroy
   has_many :user_courses, dependent: :destroy
   has_many :courses, through: :user_courses
   has_many :user_tasks, dependent: :destroy

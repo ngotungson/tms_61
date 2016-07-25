@@ -17,7 +17,7 @@
   </div>
   </br>
   <div class="card">
-    <h3><%= t "view.supervisor.course.show.all_activities_on_course" %></h3>
+    <h3><%= t ".my_activity" %></h3>
     <ul class="list-group">
       <% @activities.each do |activity| %>
         <li class="list-group-item">
@@ -52,7 +52,7 @@
           <% if @user_subject.finished? %>
           <h3>
             <span class="label label-success">
-              <%= t("view.user_subject.show.finish") %>
+              <%= t("view.user_subject.show.done") %>
             </span>
           </h3>
           <% else %>
