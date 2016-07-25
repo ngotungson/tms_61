@@ -27,18 +27,16 @@
   </div>
 
   <div class="tasks col-md-6 col-md-offset-2" id="tasks">
-    <div class="card">
-      <div class="form-group add">
-        <%= link_to_add_fields t("view.supervisor.subject.form.add_task"),
-          f, :tasks %>
-      </div>
-
-      <%= f.fields_for :tasks do |builder| %>
-        <%= render "task_fields", f: builder %>
-      <% end %>
-
-      <div class="new_task"></div>
+    <div class="form-group add">
+      <%= link_to_add_fields t("view.supervisor.subject.form.add_task"),
+        f, :tasks %>
     </div>
+
+    <%= f.fields_for :tasks do |builder| %>
+      <%= render "task_fields", f: builder %>
+    <% end %>
+
+    <div class="new_task"></div>
   </div>
 
 <% end %>

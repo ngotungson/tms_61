@@ -17,12 +17,8 @@ class Ability
       can :read, UserCourse, user_id: user.id
       can [:update, :read], User, id: user.id
       can :read, UserSubject, user_id: user.id
-      can :update, UserSubject, course: {status: Course.statuses[:in_process]}
-      cannot :update, UserSubject do |user_subject|
-        user_subject.course.not_started? || user_subject.course.closed?
-      end
-      cannot :create, UserTask do |user_task|
-        user_task.user_subject.not_started? || user_task.user_subject.closed?
+      can :update, UserSubject do |user_subject|
+        user_subject.in_process? && user_subject.course.in_process?
       end
     end
   end

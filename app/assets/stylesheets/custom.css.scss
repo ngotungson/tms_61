@@ -78,22 +78,10 @@ header {
   }
 
   #show-subject {
-    margin-top: 30px;
-
     .panel-heading {
       h2 {
         color: white;
       }
-    }
-
-    h3 {
-      color: blue;
-      text-shadow: 2px 2px 4px #000000;
-    }
-
-    #panel-subject-show {
-      margin-left: -30px;
-      box-shadow: 0px 0px 6px blue;
     }
   }
 }
