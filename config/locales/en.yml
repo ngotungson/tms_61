@@ -124,7 +124,7 @@ en:
         edit:
           title: "Edit course"
         new:
-          title: "Course"
+          title: "New Course"
         form:
           save: "Save"
           subject: "Subject of Course"
@@ -150,6 +150,7 @@ en:
           no_subject_display: "There are no subjects displayed!"
           confirm: "Are you want to delete this subject?"
           save_course_subject_status: "Save changes"
+          your_status: "My status"
         show:
           name: "Task name"
           description: "Description"
@@ -157,7 +158,7 @@ en:
           tasks: "Tasks of subject"
           duration: "Duration (days): "
         new:
-          title: "Subject"
+          title: "New Subject"
         edit:
           title: "Edit Subject"
         form:
@@ -250,13 +251,20 @@ en:
         new: "New"
         in_process: "In Process"
         closed: "Closed"
+    user_subject:
+      label:
+        new: "Not done"
+        in_process: "Not done"
+        finished: "Done"
   unauthorized:
     manage:
       all: "Not authorized to %{action} %{subject}."
       user: "This user was into course. You can't delete it"
     update:
       project: "Not allowed to update this project."
-      user_subject: "This course is closed or this subject is not started. You can not update"
+      user_subject: |
+        You can not update because this course or subject
+        is not started or already closed.
   mail:
     hello: "Hello, "
     join_in_course: "You had assigned in course "

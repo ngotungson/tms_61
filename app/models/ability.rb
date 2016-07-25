@@ -17,8 +17,12 @@ class Ability
       can :read, UserCourse, user_id: user.id
       can [:update, :read], User, id: user.id
       can :read, UserSubject, user_id: user.id
-      can :update, UserSubject do |user_subject|
-        user_subject.in_process? && user_subject.course.in_process?
+      can :update, UserSubject, course: {status: Course.statuses[:in_process]}
+      cannot :update, UserSubject do |user_subject; course_subject|
+        course_subject = CourseSubject.find_by(course_id: user_subject.course_id,
+          subject_id: user_subject.subject_id)
+        course_subject.not_started? || course_subject.closed? ||
+        user_subject.course.not_started? || user_subject.course.closed?
       end
     end
   end

@@ -4,15 +4,8 @@
   <%= link_to activity.owner.name, user_path(activity.owner) %>
 </span>
 
-<span class="activity-message"><%= yield %></span>
+<span><%= yield %></span>
 
-<span>
-  <% if activity.trackable %>
-    <%= link_to activity.trackable.name %>
-  <% else %>
-    <%= t ".view.public_activiy.removed" %>
-  <% end %>
-</span>
 <span class="time-ago pull-right">
   <%= time_ago_in_words activity.created_at %>
   <%= t "view.public_activity.time_ago" %>

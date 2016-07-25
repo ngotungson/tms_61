@@ -1,7 +1,9 @@
-User.create(name: "Supervisor",
-  email: "supervisor@example.com",
-  password: "123456",
-  role: 0)
+(1..3).each do |supervisor_id|
+  User.create(name: "Supervisor #{supervisor_id}",
+    email: "supervisor#{supervisor_id}@example.com",
+    password: "123456",
+    role: 0)
+end
 
 (1..10).each do |trainee_id|
   User.create(name: "Trainee #{trainee_id}",
