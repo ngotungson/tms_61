@@ -1,15 +1,17 @@
 <div class="container card">
   <div class="row min-height">
     <div class="row user-index-header">
-      <div class="col-md-8">
+      <div class="col-md-6">
         <h2><%= t "view.supervisor.user.index.list_all_user" %></h2>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-6">
         <div>
           <br>
           <%= search_form_for [:supervisor, @search], class: "form-inline" do |f| %>
             <%= f.text_field :name_cont, placeholder: t("view.search_user.name"),
               class: "form-control search_select" %>
+            <%= f.text_field :email_cont, placeholder: t("view.search_user.email"),
+            class: "form-control search_select" %>
             <%= f.submit t("view.search"), class: "btn btn-info margin_left_btn_submit" %>
           <% end %>
         </div>

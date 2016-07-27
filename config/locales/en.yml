@@ -28,6 +28,7 @@ en:
       name: "Input name"
       label_name: "Name contains"
       label_select_role: "Select role"
+      email: "Input email"
     search_subject:
       name: "Input name"
     layout:
