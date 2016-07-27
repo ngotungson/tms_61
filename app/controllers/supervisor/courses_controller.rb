@@ -14,6 +14,7 @@ class Supervisor::CoursesController < ApplicationController
         filename: "courses-#{Date.today}.csv"}
       format.xls {send_file @search.result.to_excel(attributes),
         filename: "courses-#{Date.today}.xls"}
+      format.xlsx {render xlsx: "index",filename: "courses.xlsx"}
     end
   end
 

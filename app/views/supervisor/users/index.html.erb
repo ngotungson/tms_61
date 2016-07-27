@@ -24,8 +24,10 @@
             new_supervisor_user_path, class: "btn btn-primary" %>
           <%= link_to t("view.supervisor.user.index.CSV"),
             supervisor_users_path(params.merge(format: "csv")), class: "btn btn-success" %>
-          <%= link_to t("view.supervisor.user.index.Excel"),
+          <%= link_to t("view.supervisor.user.index.xls"),
             supervisor_users_path(params.merge(format: "xls")), class: "btn btn-success" %>
+          <%= link_to t("view.supervisor.user.index.xlsx"),
+            supervisor_users_path(format: :xlsx), class: "btn btn-success" %>
         </div>
         <table id="mytable" class="table table-bordred table-striped">
           <thead>

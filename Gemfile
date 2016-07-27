@@ -35,6 +35,8 @@ gem "ransack"
 gem "sidekiq"
 gem "sinatra", require: false
 gem "letter_opener"
+gem "axlsx_rails"
+gem "axlsx"
 
 group :development, :test do
   gem "sqlite3", "1.3.11"
