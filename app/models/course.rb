@@ -1,5 +1,7 @@
 class Course < ActiveRecord::Base
   include ActivityLog
+  include Exportable
+
   tracked only: :create, owner: Proc.new{|controller| controller.current_user}
 
   enum status: [:not_started, :in_process, :closed]

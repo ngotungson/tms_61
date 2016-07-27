@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  include Exportable
+
   enum role: [:supervisor, :trainee]
 
   devise :database_authenticatable, :registerable,

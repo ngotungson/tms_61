@@ -7,6 +7,14 @@ class Supervisor::CoursesController < ApplicationController
   def index
     @search = Course.ransack params[:q]
     @courses = @search.result.order(updated_at: :desc).page params[:page]
+    attributes = %w(id name duration status)
+    respond_to do |format|
+      format.html
+      format.csv {send_data @search.result.to_csv(attributes),
+        filename: "courses-#{Date.today}.csv"}
+      format.xls {send_file @search.result.to_excel(attributes),
+        filename: "courses-#{Date.today}.xls"}
+    end
   end
 
   def show

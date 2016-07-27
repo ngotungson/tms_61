@@ -4,6 +4,14 @@ class Supervisor::UsersController < ApplicationController
   def index
     @search = User.ransack params[:q]
     @users = @search.result.order(updated_at: :desc).page params[:page]
+    attributes = %w(id name email role)
+    respond_to do |format|
+      format.html
+      format.csv {send_data @search.result.to_csv(attributes),
+        filename: "users-#{Date.today}.csv"}
+      format.xls {send_file @search.result.to_excel(attributes),
+        filename: "users-#{Date.today}.xls"}
+    end
   end
 
   def new
