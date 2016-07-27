@@ -28,8 +28,8 @@ course_subject:
   task_subject_param: "task_subject_page"
 user_subject:
   status_label:
-    not_started: "info"
-    in_process: "info"
+    not_started: "danger"
+    in_process: "danger"
     finished: "success"
 public_activity:
   avatar_owner: "30x30"

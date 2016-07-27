@@ -206,3 +206,13 @@ header {
 .min-height {
   min-height: 500px;
 }
+
+.inline {
+  .field_with_errors {
+    display: inline-block;
+  }
+}
+
+.max-with {
+  max-width: 200px;
+}

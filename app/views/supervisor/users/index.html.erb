@@ -26,9 +26,7 @@
             <th><%= sort_link @search, :name, t("view.supervisor.user.index.name") %></th>
             <th><%= sort_link @search, :email, t("view.supervisor.user.index.email") %></th>
             <th><%= sort_link @search, :role, t("view.supervisor.user.index.role") %></th>
-            <th></th>
             <th><%= t "view.supervisor.user.index.action" %></th>
-            <th></th>
           </thead>
           <tbody>
             <%= render(partial: "user", collection: @users, as: :user) || t("view
