@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   include Exportable
+  include Importable
 
   enum role: [:supervisor, :trainee]
 

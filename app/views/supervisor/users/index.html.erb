@@ -28,6 +28,12 @@
             supervisor_users_path(params.merge(format: "xls")), class: "btn btn-success" %>
           <%= link_to t("view.supervisor.user.index.xlsx"),
             supervisor_users_path(format: :xlsx), class: "btn btn-success" %>
+          <div class="import-form pull-right inline-block">
+              <%= form_tag import_supervisor_users_path, multipart: true do %>
+                <%= file_field_tag :file, class: "inline-block" %>
+                <%= submit_tag "Import", class: "btn btn-success" %>
+              <% end %>
+          </div>
         </div>
         <table id="mytable" class="table table-bordred table-striped">
           <thead>

@@ -232,6 +232,8 @@ en:
       user:
         destroy:
           not_delete_user: "This user was into course or is current user. You can't delete it"
+        import:
+          success: "Import successfully"
       assign_trainee:
         error: "Can't add user into this course"
         success: "Update successfully"

@@ -54,6 +54,18 @@ class Supervisor::UsersController < ApplicationController
     redirect_to supervisor_users_url
   end
 
+  def import
+    attributes = %w(name email password role)
+    begin
+      User.import(params[:file], attributes)
+    rescue => e
+      flash[:danger] = e.message
+    else
+      flash[:success] = t "controller.supervisor.user.import.success"
+    end
+    redirect_to supervisor_users_url
+  end
+
   private
   def user_params
     if params[:user][:password].blank? && params[:user][:password_confirmation].blank?

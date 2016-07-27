@@ -212,3 +212,24 @@ header {
   font-size: 15px;
   margin-left: 5px;
 }
+
+.inline {
+  .field_with_errors {
+    display: inline-block;
+  }
+}
+
+.max-with {
+  max-width: 200px;
+}
+
+.index-buttons {
+  margin-bottom: 1em;
+  padding: 0.5em;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.inline-block {
+  display: inline-block !important;
+}

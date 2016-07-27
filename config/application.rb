@@ -2,6 +2,7 @@ require File.expand_path("../boot", __FILE__)
 
 require "csv"
 require "spreadsheet"
+require "roo"
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
