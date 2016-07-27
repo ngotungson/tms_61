@@ -11,6 +11,7 @@ class Supervisor::UsersController < ApplicationController
         filename: "users-#{Date.today}.csv"}
       format.xls {send_file @search.result.to_excel(attributes),
         filename: "users-#{Date.today}.xls"}
+      format.xlsx {render xlsx: "index",filename: "users.xlsx"}
     end
   end
 

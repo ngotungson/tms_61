@@ -196,7 +196,7 @@ header {
 }
 
 .course-index-header, .subject-index-header, .user-index-header{
-  margin-bottom: 2em;
+  margin-bottom: 3em;
 }
 
 .course-form {
@@ -207,16 +207,8 @@ header {
   min-height: 500px;
 }
 
-.inline {
-  .field_with_errors {
-    display: inline-block;
-  }
-}
-
-.max-with {
-  max-width: 200px;
-}
-
-.index-buttons {
-  margin-bottom: 1em;
+.course-new-label {
+  box-shadow: 5px 5px 5px #888888;
+  font-size: 15px;
+  margin-left: 5px;
 }

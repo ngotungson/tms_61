@@ -1,0 +1,7 @@
+wb = xlsx_package.workbook
+wb.add_worksheet(name: "Subjects") do |sheet|
+  sheet.add_row ["Name", "Description", "Duration"]
+  @subjects.each do |subject|
+    sheet.add_row [subject.name, subject.description, subject.duration]
+  end
+end
