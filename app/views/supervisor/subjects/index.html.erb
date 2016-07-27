@@ -23,9 +23,9 @@
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
             <th><%= sort_link @search, :name, t("view.supervisor.subject.index.name") %></th>
-            <th><%= sort_link @search, :description,
+            <th class="max-with"><%= sort_link @search, :description,
               t("view.supervisor.subject.index.description") %></th>
-            <th><%= sort_link @search, :duration,
+            <th class="duration"><%= sort_link @search, :duration,
               t("view.supervisor.subject.index.duration") %></th>
             <th></th>
             <th><%= t "view.supervisor.subject.index.action" %></th>

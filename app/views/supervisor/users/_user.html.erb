@@ -2,20 +2,21 @@
   <td><%= link_to user.name, user %></td>
   <td><%= user.email %></td>
   <td><%= user.role %></td>
-  <% if (user == current_user && user.supervisor?) || user.trainee? %>
-    <td class="col-ations text-right">
+  <% if (user == current_user && user.supervisor?) %>
+    <td >
       <p data-placement="top" data-toggle="tooltip">
         <%= link_to t("view.supervisor.user.index.edit"),
           edit_supervisor_user_path(user),
           class: "btn btn-primary btn-xs glyphicon glyphicon-pencil" %>
       </p>
     </td>
-  <% end %>
-  <td>
-    <p data-placement="top" data-toggle="tooltip">
-      <%= link_to t("view.supervisor.user.index.delete"), [:supervisor, user],
-        method: :delete, data: {confirm: t("view.supervisor.user.index.confirm_delete")},
-        class: "btn btn-danger btn-xs glyphicon glyphicon-remove" unless user.supervisor? %>
-    </p>
-  </td>
+  <% else %>
+    <td>
+      <p data-placement="top" data-toggle="tooltip">
+        <%= link_to t("view.supervisor.user.index.delete"), [:supervisor, user],
+          method: :delete, data: {confirm: t("view.supervisor.user.index.confirm_delete")},
+          class: "btn btn-danger btn-xs glyphicon glyphicon-remove" unless user.supervisor? %>
+      </p>
+    </td>
+    <% end %>
 </tr>
