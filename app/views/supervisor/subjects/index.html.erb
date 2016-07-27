@@ -17,9 +17,14 @@
     </div>
     <div class="col-md-12">
       <div class="table-responsive">
-        <%= link_to t("view.supervisor.subject.index.add_new_subject"),
-          new_supervisor_subject_path, class: "btn btn-primary" %>
-
+        <div class="index-buttons">
+          <%= link_to t("view.supervisor.subject.index.add_new_subject"),
+            new_supervisor_subject_path, class: "btn btn-primary" %>
+          <%= link_to t("view.supervisor.subject.index.CSV"),
+            supervisor_subjects_path(params.merge(format: "csv")), class: "btn btn-success" %>
+          <%= link_to t("view.supervisor.subject.index.Excel"),
+            supervisor_subjects_path(params.merge(format: "xls")), class: "btn btn-success" %>
+        </div>
         <table id="mytable" class="table table-bordred table-striped">
           <thead>
             <th><%= sort_link @search, :name, t("view.supervisor.subject.index.name") %></th>
